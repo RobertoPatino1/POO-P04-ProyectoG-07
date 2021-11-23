@@ -1,6 +1,27 @@
 import java.util.Scanner;
+
+import Modelo.Ciudad;
+import Modelo.DuenioMascota;
 public class Main {
     public static void main(String[] args) {
+
+        /*
+
+
+
+
+
+
+        Objetos creados previo a la ejecucion del programa
+
+
+
+
+
+
+
+        */
+
         Scanner sc = new Scanner(System.in);
         int seleccion;
         int seleccion1;
@@ -12,9 +33,17 @@ public class Main {
             switch (seleccion){
                 case 1: //Administrar concursos
                     seleccion1 = menuConcursos();
+
+                    //Se debe hacer un print mostrando los concursos existentes
+                    //System.out.println(listaConcursos);
+
+
+
                     if (seleccion == 1){
                         //Creacion de un concurso
                         System.out.println("---Creacion de concurso---");
+
+
                         
                         //PEDIR DATOS PARA CREAR EL CONCURSO
 
@@ -39,14 +68,45 @@ public class Main {
                     seleccion2 = menuDuenios();
                     if (seleccion2 == 4){
                         //Crear duenio
+                        //Print que muestre la lista de los duenios
+                        //System.out.println(listaDuenios);
+                
                         System.out.println("---Crear duenio---");
 
+
                         //PEDIR DATOS PARA CREAR AL DUENIO
+                        System.out.println("Ingrese el nombre del dueño: ");
+                        String nombreDuenio = sc.nextLine();
+                        System.out.println("Ingrese los apellidos del dueño separados por un espacio: ");
+                        String apellidosDuenio = sc.nextLine();
+                        System.out.println("Ingrese la cedula del dueño: ");
+                        String cedulaDuenio = sc.nextLine();
+                        System.out.println("Ingrese la direccion del dueño: ");
+                        String direccionDuenio = sc.nextLine();
+                        System.out.println("Ingrese el telefono del duenio: ");
+                        String telefonoDuenio = sc.nextLine();
+                        System.out.println("Ingrese el nombre de la ciudad en la que reside el duenio: ");
+                        String nombreCiudad = sc.nextLine();
+                        System.out.println("Ingrese el nombre de la provincia en la que reside el duenio: ");
+                        String provinciaDuenio = sc.nextLine();
+                        System.out.println("Ingrese el email del duenio: ");
+                        String emailDuenio = sc.nextLine();
+
+                        //Creando el objeto de tipo ciudad
+                        Ciudad ciudadDuenio = new Ciudad(nombreCiudad, provinciaDuenio);
+
+
+                        //Se crea el objeto
+                        DuenioMascota duenio = new DuenioMascota(nombreDuenio, direccionDuenio, telefonoDuenio, ciudadDuenio, emailDuenio, cedulaDuenio, apellidosDuenio);
+
+
 
                         break;
                     }else if(seleccion2 == 5){
                         //Editar duenio
                         System.out.println("Editar duenio");
+
+
 
                         //PEDIR DATOS A REEMPLAZAR PARA EL DUENIO O ALGO ASI
 
@@ -108,6 +168,8 @@ public class Main {
 
 
     }
+
+    //DECLARACION DE METODOS PARA LA CREACION DEL MENU
 
 
     static Scanner sc = new Scanner(System.in); //Debe ser estatico para poder ser usado en los metodos
