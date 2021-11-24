@@ -29,8 +29,8 @@ public class Mascota {
         return duenio;
     }
     
-    //toString para mascota
+    //toString para utilizar la lista
     public String toString(){
-        return "Nombre: "+nombre+"\n"+"Tipo de mascota: "+tipoMascota+"\n"+"Raza: "+raza+"\n"+"Fecha de nacimiento: "+fechaDeNacimiento+"\n"+"Dueño: "+duenio;
+        return "Nombre: "+nombre+"\n"+"Tipo de mascota: "+tipoMascota+"\n"+"Raza: "+raza+"\n"+"Fecha de nacimiento: "+fechaDeNacimiento+"\n"+"Dueño: "+duenio+"\n"+"Foto: "+foto;
     }
 }
