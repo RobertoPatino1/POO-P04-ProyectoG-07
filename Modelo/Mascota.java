@@ -1,5 +1,7 @@
 package Modelo;
 
+import org.w3c.dom.ranges.RangeException;
+
 public class Mascota {
     private String nombre;
     private TipoAnimal tipoMascota;
@@ -27,4 +29,8 @@ public class Mascota {
         return duenio;
     }
     
+    //toString para mascota
+    public String toString(){
+        return "Nombre: "+nombre+"\n"+"Tipo de mascota: "+tipoMascota+"\n"+"Raza: "+raza+"\n"+"Fecha de nacimiento: "+fechaDeNacimiento+"\n"+"Dueño: "+duenio;
+    }
 }

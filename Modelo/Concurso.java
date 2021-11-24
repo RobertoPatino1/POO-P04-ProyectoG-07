@@ -24,4 +24,9 @@ public class Concurso {
         this.auspiciante= auspiciante;
         this.dirigidoA= dirigidoA;
     }
+
+    //Metodo visualizar las mascotas inscritas (imcompleto)
+    public void visualizarMascotasInscritas(){
+        MascotaInscrita = new ArrayList<Mascota>()
+    }
 }
