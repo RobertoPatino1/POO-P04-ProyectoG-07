@@ -27,6 +27,6 @@ public class Concurso {
 
     //Metodo visualizar las mascotas inscritas (imcompleto)
     public void visualizarMascotasInscritas(){
-        MascotaInscrita = new ArrayList<Mascota>()
+        //MascotaInscrita = new ArrayList<Mascota>()
     }
 }
