@@ -12,20 +12,34 @@ public class DuenioMascota extends Persona{
         this.cedula = cedula;
         this.apellidos = apellidos;
     }
+    
+    //Constructor con solo la cedula
+    //Pone todos los demas valores del constructor en null.
+    //Este Constructor sera usado unicamente para la busqueda de un objeto en la lista con la cedula
+    public DuenioMascota(String cedula){
+        super(null, null, null, null, null);
+        this.cedula = cedula;
+    }
 
-    //Implementando el metodo equals que se base solo en la cedula
 
+    //Este metodo sera usado por el contains para buscar en la lista el elemento que coincida con la cedula ingresada
     @Override
     public boolean equals(Object o){
-        if(this==o){
+
+        if(this == o){
             return true;
         }
         if(o!=null&&o instanceof DuenioMascota){
-            //Se hace downcasting
-            DuenioMascota duenioEquals = (DuenioMascota) o;
-            return this.cedula.equals(duenioEquals.cedula);
+            //Downcasting
+            DuenioMascota duenio = (DuenioMascota) o;
+            return this.cedula.equals(duenio.cedula);
         }
         return false;
+        
+    }
+
+    public String toString(){
+        return super.toString()+"Apellidos: "+apellidos+"|"+"Cedula: "+cedula; 
     }
     
 }
