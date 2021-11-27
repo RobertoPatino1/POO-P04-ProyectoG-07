@@ -2,9 +2,12 @@ import java.util.Scanner;
 
 import Modelo.Ciudad;
 import Modelo.DuenioMascota;
+import Modelo.Mascota;
+import Modelo.TipoAnimal;
+import Modelo.SistemaMenu;
 public class Main {
     public static void main(String[] args) {
-
+        
         /*
 
 
@@ -29,10 +32,10 @@ public class Main {
         int seleccion3;
 
         do{
-            seleccion = menuPrincipal();
+            seleccion = SistemaMenu.menuPrincipal();
             switch (seleccion){
                 case 1: //Administrar concursos
-                    seleccion1 = menuConcursos();
+                    seleccion1 = SistemaMenu.menuConcursos();
 
                     //Se debe hacer un print mostrando los concursos existentes
                     //System.out.println(listaConcursos);
@@ -65,7 +68,7 @@ public class Main {
 
 
                 case 2: //Administrar Duenios
-                    seleccion2 = menuDuenios();
+                    seleccion2 = SistemaMenu.menuDuenios();
                     if (seleccion2 == 4){
                         //Crear duenio
                         //Print que muestre la lista de los duenios
@@ -73,32 +76,10 @@ public class Main {
                 
                         System.out.println("---Crear duenio---");
 
+                        DuenioMascota duenioCreado = SistemaMenu.crearDuenio(); //Se crea el duenio de la mascota
+                        //Luego se agrega este duenio creado a la lista de duenios
 
-                        //PEDIR DATOS PARA CREAR AL DUENIO
-                        System.out.println("Ingrese el nombre del dueño: ");
-                        String nombreDuenio = sc.nextLine();
-                        System.out.println("Ingrese los apellidos del dueño separados por un espacio: ");
-                        String apellidosDuenio = sc.nextLine();
-                        System.out.println("Ingrese la cedula del dueño: ");
-                        String cedulaDuenio = sc.nextLine();
-                        System.out.println("Ingrese la direccion del dueño: ");
-                        String direccionDuenio = sc.nextLine();
-                        System.out.println("Ingrese el telefono del duenio: ");
-                        String telefonoDuenio = sc.nextLine();
-                        System.out.println("Ingrese el nombre de la ciudad en la que reside el duenio: ");
-                        String nombreCiudad = sc.nextLine();
-                        System.out.println("Ingrese el nombre de la provincia en la que reside el duenio: ");
-                        String provinciaDuenio = sc.nextLine();
-                        System.out.println("Ingrese el email del duenio: ");
-                        String emailDuenio = sc.nextLine();
-
-                        //Creando el objeto de tipo ciudad
-                        Ciudad ciudadDuenio = new Ciudad(nombreCiudad, provinciaDuenio);
-
-
-                        //Se crea el objeto
-                        DuenioMascota duenio = new DuenioMascota(nombreDuenio, direccionDuenio, telefonoDuenio, ciudadDuenio, emailDuenio, cedulaDuenio, apellidosDuenio);
-
+                        System.out.println(duenioCreado);
 
 
                         break;
@@ -109,8 +90,10 @@ public class Main {
 
 
                         //PEDIR DATOS A REEMPLAZAR PARA EL DUENIO O ALGO ASI
+                        SistemaMenu.editarDuenio();
 
                         break;
+
                     }else if(seleccion2 == 6){
                         //Regresar al menu
                         System.out.println("Regresar al menu principal");
@@ -119,7 +102,7 @@ public class Main {
                     break;
 
                 case 3:
-                    seleccion3 = menuMascotas();
+                    seleccion3 = SistemaMenu.menuMascotas();
                     if (seleccion3 == 7){
                         //Crear mascota
                         System.out.println("Crear mascota");
@@ -169,50 +152,7 @@ public class Main {
 
     }
 
-    //DECLARACION DE METODOS PARA LA CREACION DEL MENU
 
-
-    static Scanner sc = new Scanner(System.in); //Debe ser estatico para poder ser usado en los metodos
-
-
-    public static int menuPrincipal(){
-        System.out.println("---Menu principal---");
-        System.out.println("Selecciona una opcion");
-        System.out.println("1. Administrar Concursos");
-        System.out.println("2. Administrar Dueños");
-        System.out.println("3. Administrar Mascotas");
-        System.out.println("4. Salir");
-        int opcion = sc.nextInt();
-        return opcion;
-    }
-
-    //Opciones principales
-    public static int menuConcursos(){
-        System.out.println("---Menu de concursos---");
-        System.out.println("1. Crear concurso");
-        System.out.println("2. Inscribir participante");
-        System.out.println("3. Regresar al menú principal");
-        int opcion = sc.nextInt();
-        return opcion;
-    }
-
-    public static int menuDuenios(){
-        System.out.println("---Menu de duenios---");
-        System.out.println("4. Crear dueño");
-        System.out.println("5. Editar dueño");
-        System.out.println("6. Regresar al menú principal");
-        int opcion = sc.nextInt();
-        return opcion;      
-    }
-
-    public static int menuMascotas(){
-        System.out.println("---Menu de mascotas---");
-        System.out.println("7. Crear mascota");
-        System.out.println("8. Eliminar mascota");
-        System.out.println("9. Regresar al menú principal");
-        int opcion = sc.nextInt();
-        return opcion;  
-    }
 
 
 
