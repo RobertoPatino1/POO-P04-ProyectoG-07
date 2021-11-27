@@ -36,4 +36,8 @@ public class Persona{
         return email;
     }
 
+    //Metodo toString
+    public String toString(){
+        return "Nombre: "+nombre+"|"+"Ciudad: "+ciudad.getNombre();
+    }
 }
