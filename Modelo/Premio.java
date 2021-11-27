@@ -19,7 +19,7 @@ public class Premio {
 
     //Verificar el uso de el boolean tieneAuspiciante
     public String toString(){
-        return "Primer lugar: "+descripcionPrimerLugar+"\n"+"Segundo lugar: "+descripcionSegundoLugar+"\n"+"Tercer lugar: "+descripcionTercerLugar;
+        return "Primer lugar: "+descripcionPrimerLugar+"|"+"Segundo lugar: "+descripcionSegundoLugar+"|"+"Tercer lugar: "+descripcionTercerLugar;
     }
     
 }
