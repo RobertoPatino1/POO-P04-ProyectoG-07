@@ -13,4 +13,11 @@ public class Ciudad {
     public String getNombre(){
         return nombre;
     }   
+
+    //Metodo toString
+    //Sera usado para imprimir las listas de ciudades por pantalla
+    public String toString(){
+        return "Nombre: "+nombre+"|"+"Provincia: "+provincia;
+    }
+    
 }
