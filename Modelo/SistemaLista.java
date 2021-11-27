@@ -49,5 +49,4 @@ public class SistemaLista {
         } 
     }
     //los metodos que poseen getNombre no poseen un toString establecido
-
 }
