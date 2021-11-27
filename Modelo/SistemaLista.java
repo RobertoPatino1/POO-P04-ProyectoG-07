@@ -11,8 +11,8 @@ public class SistemaLista {
         mascotas.add(m);
         return mascotas;
     } 
-    public ArrayList<DuenioMascota> reguistrarDuenioMascota(DuenioMascota dm) {
-        ArrayList<DuenioMascota> duenios = new ArrayList<>();
+    public ArrayList<Persona> reguistrarDuenioMascota(DuenioMascota dm) {
+        ArrayList<Persona> duenios = new ArrayList<>();
         duenios.add(dm);
         return duenios;
     }
@@ -21,8 +21,8 @@ public class SistemaLista {
         ciudades.add(c);
         return ciudades;
     }
-    public ArrayList<Auspiciante> reguistrarAuspiciante(Auspiciante a) {
-        ArrayList<Auspiciante> auspiciantes = new ArrayList<>();
+    public ArrayList<Persona> reguistrarAuspiciante(Auspiciante a) {
+        ArrayList<Persona> auspiciantes = new ArrayList<>();
         auspiciantes.add(a);
         return auspiciantes;
     }
@@ -33,40 +33,21 @@ public class SistemaLista {
             m.toString();
         }
     }
-    public void VerListaDuenioMascota(ArrayList<DuenioMascota> duenios){
-        //------------------------------
-        /*
-        for(DuenioMascota dm:duenios){
-            dm.toString();
+    public void VerListaDuenioMascota(ArrayList<Persona> duenios){
+        for(Persona dm:duenios){
+            dm.getNombre();
         }
-        */
-        //------------------------------
-        //no tiene un toString
-        //no tiene gets
     }
     public void VerCiudades(ArrayList<Ciudad> ciudades){
-        //------------------------------
-        /*
         for(Ciudad c:ciudades){
-            c.toString();
             c.getNombre();
         }
-        */
-        //------------------------------
-        //no tiene un toString
-        //no tiene gets
     }
-    public void VerAuspiciantes(ArrayList<Auspiciante> auspiciantes){
-        //------------------------------
-        /*
-        for(Auspiacinte a:auspiciantes){
-            a.toString();
+    public void VerAuspiciantes(ArrayList<Persona> auspiciantes){
+        for(Persona a:auspiciantes){
             a.getNombre();
-        }
-        */
-        //------------------------------
-        //no tiene un toString
-        //no tiene gets     
+        } 
     }
+    //los metodos que poseen getNombre no poseen un toString establecido
 
 }

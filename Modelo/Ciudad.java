@@ -8,5 +8,9 @@ public class Ciudad {
         this.nombre = nombre;
         this.provincia = provincia;
     }
-    
+
+    //Getter
+    public String getNombre(){
+        return nombre;
+    }   
 }
