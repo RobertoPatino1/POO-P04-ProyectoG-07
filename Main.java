@@ -3,6 +3,7 @@ import java.util.Scanner;
 import Modelo.Ciudad;
 import Modelo.DuenioMascota;
 import Modelo.Mascota;
+import Modelo.SistemaLista;
 import Modelo.TipoAnimal;
 import Modelo.SistemaMenu;
 public class Main {
@@ -71,26 +72,23 @@ public class Main {
                     seleccion2 = SistemaMenu.menuDuenios();
                     if (seleccion2 == 4){
                         //Crear duenio
-                        //Print que muestre la lista de los duenios
                         //System.out.println(listaDuenios);
-                
+
+                        SistemaLista.visualizarListaDuenios();
                         System.out.println("---Crear duenio---");
 
-                        DuenioMascota duenioCreado = SistemaMenu.crearDuenio(); //Se crea el duenio de la mascota
+                        DuenioMascota duenioCreado = SistemaLista.crearDuenio(); //Se crea el duenio de la mascota
                         //Luego se agrega este duenio creado a la lista de duenios
 
-                        System.out.println(duenioCreado);
+                        SistemaLista.registrarDuenioMascota(duenioCreado);
 
 
                         break;
                     }else if(seleccion2 == 5){
                         //Editar duenio
                         System.out.println("Editar duenio");
-
-
-
-                        //PEDIR DATOS A REEMPLAZAR PARA EL DUENIO O ALGO ASI
-                        SistemaMenu.editarDuenio();
+                        
+                        SistemaLista.editarDuenio();
 
                         break;
 
@@ -104,18 +102,21 @@ public class Main {
                 case 3:
                     seleccion3 = SistemaMenu.menuMascotas();
                     if (seleccion3 == 7){
+
+                        //Se muestra la lista de mascotas existentes
+                        SistemaLista.visualizarListaMascotas();
                         //Crear mascota
                         System.out.println("Crear mascota");
+                        Mascota mascotaCreada = SistemaLista.crearMascota();
 
-                        //PEDIR LOS DATOS PARA CREAR LA MASCOTA
-
+                        //Se agrega la mascota a la lista
+                        SistemaLista.registrarMascotas(mascotaCreada);
                         break;
                     }else if(seleccion3 == 8){
                         //Eliminar mascota
                         System.out.println("Eliminar mascota");
-
-                        //PEDIR LA MASCOTA QUE SE DESEA ELIMINAR (REVISAR ESTO)
-
+                        SistemaLista.eliminarMascota();
+                        
                         break;
                     }else if(seleccion3 == 9){
                         //Regresar al menu
