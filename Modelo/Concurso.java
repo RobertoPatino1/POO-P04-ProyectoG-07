@@ -8,11 +8,14 @@ public class Concurso {
     private String fechaCierreInscripcion;
     private Ciudad ciudad;
     private String lugar;
-    private Premio premio;
+    private Premio premio; //Completar la clase premio
     private Auspiciante auspiciante;
     private TipoAnimal dirigidoA;
+    private boolean estaAbierto; //True si el concurso esta abierto/ false si esta cerrado
+    private boolean concursoFinalizado; //True si el concurso ha terminado
 
     public Concurso(String nombre, String fechaEvento, String horaEvento, String fechaInicioInscripcion, String fechaCierreInscripcion, Ciudad ciudad, String lugar, Premio premio, Auspiciante auspiciante, TipoAnimal dirigidoA){
+        
         this.nombre= nombre;
         this.fechaEvento= fechaEvento;
         this.horaEvento= horaEvento;

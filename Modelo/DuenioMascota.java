@@ -12,5 +12,20 @@ public class DuenioMascota extends Persona{
         this.cedula = cedula;
         this.apellidos = apellidos;
     }
+
+    //Implementando el metodo equals que se base solo en la cedula
+
+    @Override
+    public boolean equals(Object o){
+        if(this==o){
+            return true;
+        }
+        if(o!=null&&o instanceof DuenioMascota){
+            //Se hace downcasting
+            DuenioMascota duenioEquals = (DuenioMascota) o;
+            return this.cedula.equals(duenioEquals.cedula);
+        }
+        return false;
+    }
     
 }
