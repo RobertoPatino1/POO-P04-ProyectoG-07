@@ -8,6 +8,8 @@ public class Mascota {
     private String foto;
     private DuenioMascota duenio;
     private String id;
+    private boolean disponibleParaFuturasInscripciones;
+    private boolean haParticipado;
 
     //Constructor que inicializa los atributos
     public Mascota(String nombre, TipoAnimal tipoMascota, String raza, String fechaDeNacimiento, String foto, DuenioMascota duenio, String id){
@@ -18,6 +20,7 @@ public class Mascota {
         this.foto = foto;
         this.duenio = duenio;
         this.id = id;
+        this.disponibleParaFuturasInscripciones = true;
     }
     
     //Constructor con solo el id de la mascota
@@ -34,6 +37,18 @@ public class Mascota {
     public DuenioMascota getDuenio(){
         return duenio;
     }
+    public boolean getDisponibilidad(){
+        return disponibleParaFuturasInscripciones;
+    }
+
+    //Setters
+    public void setDisponibilidadDeInscripciones(boolean disp){
+        this.disponibleParaFuturasInscripciones = disp;
+    }
+
+
+
+
 
     //Metodo equals:
     //-----Este metodo sera usado para buscar una mascota en la lista de mascotas con el .contains()-----
