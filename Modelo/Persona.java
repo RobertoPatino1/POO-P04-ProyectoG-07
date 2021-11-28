@@ -36,6 +36,23 @@ public class Persona{
         return email;
     }
 
+    //Setters
+    public void setNombre(String nombre){
+        this.nombre=nombre;
+    }
+    public void setDireccion(String direccion){
+        this.direccion=direccion;
+    }
+    public void setTelefono(String telefono){
+        this.telefono=telefono;
+    }
+    public void setCiudad(Ciudad ciudad){
+        this.ciudad=ciudad;
+    }
+    public void setEmail(String email){
+        this.email=email;
+    }
+
     //Metodo toString
     public String toString(){
         return "Nombre: "+nombre+"|"+"Ciudad: "+ciudad.getNombre();
