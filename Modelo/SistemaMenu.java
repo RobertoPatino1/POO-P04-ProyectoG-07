@@ -46,5 +46,22 @@ public class SistemaMenu {
         int opcion = Integer.valueOf(opcionString);
         return opcion;  
     }
+
+    //Menu que se usa para editar al duenio de una mascota
+    public static int menuEditarDuenio(){
+        System.out.println("---Menu de edicion para duenios---");
+        System.out.println("Selecciona una opcion");
+        System.out.println("1. Editar nombre");
+        System.out.println("2. Actualizar apellidos");
+        System.out.println("3. Actualizar direccion");
+        System.out.println("4. Actualizar telefono");
+        System.out.println("5. Actualizar ciudad");
+        System.out.println("6. Actualizar email");
+        System.out.println("7. Finalizar edicion");
+
+        String opcionString = sc.nextLine();
+        int opcion = Integer.valueOf(opcionString);
+        return opcion;
+    }
     
 }
