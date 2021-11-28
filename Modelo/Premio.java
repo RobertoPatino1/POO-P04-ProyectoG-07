@@ -21,6 +21,11 @@ public class Premio {
         this.auspiciante = auspiciante; 
     }
 
+    //Setter de auspiciante
+    public void setAuspiciante(Auspiciante au){
+        this.auspiciante = au;
+    }
+
     //ToString
 
     //Retorna un String con la info tal y como se muestra en el pdf

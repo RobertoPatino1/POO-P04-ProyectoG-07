@@ -323,6 +323,8 @@ public class SistemaLista {
         System.out.println("(Si/no) ");
         String respuesta = sc.nextLine().toLowerCase();
 
+        Auspiciante ausp = null;
+
         //Ojo con esta parte
         while(!(respuesta.equals("si")||respuesta.equals("no"))){
             System.out.println("No se detecto una respuesta, por favor intente nuevamente: ");
@@ -333,12 +335,28 @@ public class SistemaLista {
         }
         //Pedirle un auspiciante???
         if(respuesta.equals("si")){
+            int i = 0;
             tieneAuspiciante = true;
+            System.out.println("Seleccione el auspiciante para sus premios: ");
+            for(Auspiciante auspFor: listaAuspiciantes){
+                System.out.println((i+1)+". "+auspFor);
+                
+            }
+            int eleccion = sc.nextInt();
+            sc.nextLine();
+            if(eleccion>=listaAuspiciantes.size()||eleccion<0){
+                System.out.println("No se ha encontrado el auspiciante, por favor vuelva a ejecutar el programa");
+                return null;
+            }
+            ausp = listaAuspiciantes.get(i-1); //Se selecciona el auspiciante del indice escogido
+
+            
+
         }
 
 
         //Se crea el objeto
-        Premio premio = new Premio(descripcion1, descripcion2, descripcion3, tieneAuspiciante);
+        Premio premio = new Premio(descripcion1, descripcion2, descripcion3, tieneAuspiciante, ausp); //El constructor recibe el auspiciante creado
         System.out.println("El premio ha sido creado exitosamente");
         return premio;
     }
