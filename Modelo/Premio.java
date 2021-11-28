@@ -5,6 +5,7 @@ public class Premio {
     private String descripcionSegundoLugar;
     private String descripcionTercerLugar;
     private boolean tieneAuspiciante; //OJOOOOOOOOOOOOOOOOO
+    private Auspiciante auspiciante;
 
     public Premio(String sP, String dS, String dT,boolean tA){
         this.descripcionPrimerLugar = sP;
@@ -12,6 +13,13 @@ public class Premio {
         this.descripcionTercerLugar = dT;
         this.tieneAuspiciante = tA;
     }  
+    public Premio(String sP, String dS, String dT,boolean tA, Auspiciante auspiciante){
+        this.descripcionPrimerLugar = sP;
+        this.descripcionSegundoLugar = dS;
+        this.descripcionTercerLugar = dT;
+        this.tieneAuspiciante = tA; 
+        this.auspiciante = auspiciante; 
+    }
 
     //ToString
 
