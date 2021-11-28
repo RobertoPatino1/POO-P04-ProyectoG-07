@@ -149,28 +149,15 @@ public class Main {
         Concurso concursoVigente = new Concurso("OrejasLargas","30/11/2021","13:24","28/11/2021","10/12/2021",ciudadv,"ParqueSamanes",premio1,auspiciantev,TipoAnimalesConcurso.PERROS);
         SistemaLista.registrarConcurso(concursoVigente);
 
-        //creacion de 10 mascotas 
-        System.out.println("---Ingreso de Mascotas---");
-        Mascota mascota1 = new Mascota("Pinky",TipoAnimal.PERRO,"Salchica","24/08/2005","http1",DuenioMascota dm,"2005");
-        SistemaLista.registrarMascotas(mascota1);
-        Mascota mascota2 = new Mascota("Balto",TipoAnimal.PERRO,"Huzky","14/03/1933","http2",DuenioMascota dm,"1933");
-        SistemaLista.registrarMascotas(mascota2);
-        Mascota mascota3 = new Mascota("Krypto",TipoAnimal.PERRO,"Samoyendo","02/03/1955","http3",DuenioMascota dm,"0210");
-        SistemaLista.registrarMascotas(mascota3);
-        Mascota mascota4 = new Mascota("Goofy",TipoAnimal.PERRO,"Aberdeen","17/09/1967","http4",DuenioMascota dm,"1967");
-        SistemaLista.registrarMascotas(mascota4);
-        Mascota mascota5 = new Mascota("Scooby",TipoAnimal.PERRO,"Danes","13/05/1969","http5",DuenioMascota dm,"1969");
-        SistemaLista.registrarMascotas(mascota5);
-        Mascota mascota6 = new Mascota("Garfiel",TipoAnimal.GATO,"Birmano","19/06/1966","http6",DuenioMascota dm,"1966");
-        SistemaLista.registrarMascotas(mascota6);
-        Mascota mascota7 = new Mascota("Silvestre",TipoAnimal.GATO,"Silvestris","14/05/1945","http7",DuenioMascota dm,"0103");
-        SistemaLista.registrarMascotas(mascota7);
-        Mascota mascota8 = new Mascota("Garry",TipoAnimal.GATO,"caracol","23/10/1955","http8",DuenioMascota dm,"1955");
-        SistemaLista.registrarMascotas(mascota8);
-        Mascota mascota9 = new Mascota("Doraemon",TipoAnimal.GATO,"Birmano","01/12/1969","http9",DuenioMascota dm,"1969");
-        SistemaLista.registrarMascotas(mascota9);
-        Mascota mascota10 = new Mascota("Chiquito",TipoAnimal.GATO,"Romano","24/08/2005","http10",DuenioMascota dm,"2000");
-        SistemaLista.registrarMascotas(mascota10);
+        //creaccion de 3 ciudades
+        System.out.println("---Ingreso de ciudades---");
+        Ciudad ciudad1 = new Ciudad("Guayaquil","Guayas");
+        SistemaLista.registrarCiudad(ciudad1);  
+        Ciudad ciudad2 = new Ciudad("Quito","Pichincha");
+        SistemaLista.registrarCiudad(ciudad2); 
+        Ciudad ciudad3 = new Ciudad("Cuenca","Azuay");
+        SistemaLista.registrarCiudad(ciudad3); 
+
 
         //creacion de 10 dueños 
         System.out.println("---Ingreso de Dueños---");
@@ -195,18 +182,37 @@ public class Main {
         DuenioMascota duenio10 = new DuenioMascota("Kennet", "23 y Francisco segura", "3087210", ciudad2 , "correo0009@gmail.com", "0951120535", "Lima");
         SistemaLista.registrarDuenioMascota(duenio10);
 
-        //creaccion de 3 ciudades
-        System.out.println("---Ingreso de ciudades---");
-        Ciudad ciudad1 = new Ciudad("Guayaquil","Guayas");
-        SistemaLista.registrarCiudad(ciudad1);  
-        Ciudad ciudad2 = new Ciudad("Quito","Pichincha");
-        SistemaLista.registrarCiudad(ciudad2); 
-        Ciudad ciudad3 = new Ciudad("Cuenca","Azuay");
-        SistemaLista.registrarCiudad(ciudad3); 
+        //creacion de 10 mascotas 
+        System.out.println("---Ingreso de Mascotas---");
+        Mascota mascota1 = new Mascota("Pinky",TipoAnimal.PERRO,"Salchica","24/08/2005","http1",duenio1,"2005");
+        SistemaLista.registrarMascotas(mascota1);
+        Mascota mascota2 = new Mascota("Balto",TipoAnimal.PERRO,"Huzky","14/03/1933","http2",duenio2,"1933");
+        SistemaLista.registrarMascotas(mascota2);
+        Mascota mascota3 = new Mascota("Krypto",TipoAnimal.PERRO,"Samoyendo","02/03/1955","http3",duenio3,"0210");
+        SistemaLista.registrarMascotas(mascota3);
+        Mascota mascota4 = new Mascota("Goofy",TipoAnimal.PERRO,"Aberdeen","17/09/1967","http4",duenio4,"1967");
+        SistemaLista.registrarMascotas(mascota4);
+        Mascota mascota5 = new Mascota("Scooby",TipoAnimal.PERRO,"Danes","13/05/1969","http5",duenio5,"1969");
+        SistemaLista.registrarMascotas(mascota5);
+        Mascota mascota6 = new Mascota("Garfiel",TipoAnimal.GATO,"Birmano","19/06/1966","http6",duenio6,"1966");
+        SistemaLista.registrarMascotas(mascota6);
+        Mascota mascota7 = new Mascota("Silvestre",TipoAnimal.GATO,"Silvestris","14/05/1945","http7",duenio7,"0103");
+        SistemaLista.registrarMascotas(mascota7);
+        Mascota mascota8 = new Mascota("Garry",TipoAnimal.GATO,"caracol","23/10/1955","http8",duenio8,"1955");
+        SistemaLista.registrarMascotas(mascota8);
+        Mascota mascota9 = new Mascota("Doraemon",TipoAnimal.GATO,"Birmano","01/12/1969","http9",duenio9,"1969");
+        SistemaLista.registrarMascotas(mascota9);
+        Mascota mascota10 = new Mascota("Chiquito",TipoAnimal.GATO,"Romano","24/08/2005","http10",duenio10,"2000");
+        SistemaLista.registrarMascotas(mascota10);
 
         //creacion de 3 auspiciantes
         System.out.println("---Ingreso de Auspiciantes---");
-        SistemaLista.registrarAuspiciante();
+        Auspiciante auspiciante1= new Auspiciante("Auspiciante 1", "direccion 1", "telefono1", ciudad1, "email1@", "webPage1.com")
+        SistemaLista.registrarAuspiciante(auspiciante1);
+        Auspiciante auspiciante2= new Auspiciante("Auspiciante 2", "direccion 2", "telefono1", ciudad2, "email2@", "webPage2.com")
+        SistemaLista.registrarAuspiciante(auspiciante2);
+        Auspiciante auspiciante3= new Auspiciante("Auspiciante 3", "direccion 3", "telefono1", ciudad3, "email3@", "webPage3.com")
+        SistemaLista.registrarAuspiciante(auspiciante3);
         }
         
     }
