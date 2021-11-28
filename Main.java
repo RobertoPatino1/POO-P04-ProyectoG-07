@@ -5,6 +5,7 @@ import Modelo.Ciudad;
 import Modelo.Concurso;
 import Modelo.DuenioMascota;
 import Modelo.Mascota;
+import Modelo.Premio;
 import Modelo.SistemaLista;
 import Modelo.TipoAnimal;
 import Modelo.TipoAnimalesConcurso;
@@ -144,7 +145,8 @@ public class Main {
         System.out.println("---Creacion de Concurso vigente---");
         Ciudad ciudadv = new Ciudad("Guayaquil","Guayas");
         Auspiciante auspiciantev = new Auspiciante("Raul.Salazar","Base.naval.sur.Av25","0991279217",ciudadv,"rausala@espol.edu.ec","http.a");
-        Concurso concursoVigente = new Concurso("OrejasLargas","30/11/2021","13:24","28/11/2021","10/12/2021",ciudadv,"Guiayaquil","ParqueSamanes","Croquetas",auspiciantev,TipoAnimal.PERRO,TipoAnimalesConcurso.PERROS);
+        Premio premio1 = new Premio("Comida para perro 1 año", "Comida para perro 1/2 año", "Comida para perro 1/4 año",true, auspiciantev);
+        Concurso concursoVigente = new Concurso("OrejasLargas","30/11/2021","13:24","28/11/2021","10/12/2021",ciudadv,"ParqueSamanes",premio1,auspiciantev,TipoAnimal.PERRO,TipoAnimalesConcurso.PERROS);
         SistemaLista.registrarConcurso(concursoVigente);
 
         //creacion de 10 mascotas 
@@ -172,6 +174,7 @@ public class Main {
 
         //creacion de 10 dueños 
         System.out.println("---Ingreso de Dueños---");
+        DuenioMascota duenio1 = new DuenioMascota("Mario", "14 y Francisco segura", "3087207", Ciudad ciudad, String email, String cedula, String apellidos)
         SistemaLista.registrarDuenioMascota();
 
         //creaccion de 3 ciudades
