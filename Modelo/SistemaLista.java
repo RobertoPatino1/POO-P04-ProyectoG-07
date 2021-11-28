@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SistemaLista {
-    private static ArrayList<Concurso> listaConcursos; 
+    private static ArrayList<Concurso> listaConcursos; //Puede contener concursos abiertos o cerrados
     private static ArrayList<DuenioMascota> listaDuenios;
     private static ArrayList<Mascota> listaMascotas;
     private static ArrayList<Ciudad> listaCiudades;
@@ -18,25 +18,67 @@ public class SistemaLista {
 
     //Para concurso
     public static Concurso crearConcurso(){
-        //Se deben pedir y rellenar todos los datos referentes al concurso para luego retornarlo
+        System.out.println("Ingrese el nombre del concurso a crear: ");
+        String nombre = sc.nextLine();
+        System.out.println("Ingrese la fecha del concurso: ");
+        String fecha = sc.nextLine();
+        System.out.println("Ingrese la hora del concurso: ");
+        String hora = sc.nextLine();
+        System.out.println("Ingrese la fecha de inicio de las inscripciones: ");
+        String fechaInicio = sc.nextLine();
+        System.out.println("Ingrese la fecha de cierre para las inscripciones: ");
+        String fechaCierre = sc.nextLine();
+        
+        //Se piden datos para el premio
+        Ciudad ciudad = crearCiudad(); //Se usa un metodo definido en esta misma clase
+        
+        System.out.println("Ingrese el lugar donde se llevará a cabo el concurso: ");
+        String lugar = sc.nextLine();
 
-        //Debe tener retorno de tipo Concurso o debe ser void para agregar el concurso a la lista de concursos???
-        return null; //Cambiar al objeto de concurso creado
+        //Se piden datos para el premio
+        Premio premio = crearPremios();
+
+        //Se piden datos para el auspiciante
+        Auspiciante auspiciante = crearAuspiciante();
+
+        System.out.println("Para quien esta dirigido el concurso: ");
+        TipoAnimalesConcurso tipoAnimalesConcurso = null; //Se coloca la variable como null para empezar
+        System.out.println("1. Perros \n"+"2. Gatos \n"+"3. Todos");
+        int seleccion = sc.nextInt();
+        sc.nextLine();
+        if(seleccion==1){
+            tipoAnimalesConcurso = TipoAnimalesConcurso.PERROS;
+        }else if(seleccion==2){
+            tipoAnimalesConcurso = TipoAnimalesConcurso.GATOS;
+        }else if(seleccion==3){
+            tipoAnimalesConcurso = TipoAnimalesConcurso.TODOS;
+        }else{
+            while(seleccion!=1&&seleccion!=2&&seleccion!=3)
+            System.out.println("Respuesta no valida, seleccione nuevamente: ");
+            System.out.println("Para quien esta dirigido el concurso: ");
+            System.out.println("1. Perros \n"+"2. Gatos \n"+"3. Todos");
+            seleccion = sc.nextInt();
+        }
+
+        //Se crea el concurso: 
+        Concurso concurso = new Concurso(nombre, fecha, hora, fechaInicio, fechaCierre, ciudad, lugar, premio, auspiciante, tipoAnimalesConcurso);
+        return concurso;
     }
-        /*
 
+
+    
     public static void inscribirParticipantes(){
         System.out.println("Se muestra el listado de concursos abiertos: ");
         
         for(Concurso concurso: listaConcursos){
-            if (concurso.estaAbierto){
+            if (concurso.getEstaAbierto()){
                 System.out.println(concurso);
             }
         }
 
         //Se solicita ingresar el codigo del concurso y el id de la mascota
         //Para esto se debe verificar que la mascota este en la lista de mascotas
-        System.out.println("Ingrese el codigo del concurso en el que se va a registrar al participante: ");
+        System.out.println("Ingrese el nombre del concurso en el que se va a registrar al participante: ");
         String codigoConcurso = sc.nextLine();
 
         //Se crea un concurso de busqueda con el codigo ingresado
@@ -55,19 +97,20 @@ public class SistemaLista {
             Mascota mascotaBusqueda = new Mascota(idIngresado);
 
             if(listaMascotas.contains(mascotaBusqueda)){
-                System.out.println("La mascota fue encontrada y registrada exitosamente")
+                System.out.println("La mascota fue encontrada y registrada exitosamente");
+
             }else{
-                System.out.println("La mascota no fue encontrada, ejecute el programa nuevamente")
+                System.out.println("La mascota no fue encontrada, ejecute el programa nuevamente");
             }
 
         }else{
-            System.out.println("El codigo del concurso no fue encontrado, vuelva a ejecutar el programa")
+            System.out.println("El codigo del concurso no fue encontrado, vuelva a ejecutar el programa");
         }
             
         
     }
 
-    */
+    
 
     //Para Duenios de mascota
     public static DuenioMascota crearDuenio(){
@@ -115,27 +158,66 @@ public class SistemaLista {
             System.out.println("Duenio encontrado exitosamente");
             //El metodo contains usa el equals definido en la clase DuenioMascota
             int indice = listaDuenios.indexOf(duenioBusqueda);
-            DuenioMascota duenio = listaDuenios.get(indice);
+            DuenioMascota duenioEdicion = listaDuenios.get(indice);
             
-            int seleccion = 0;
+            int seleccion;
+            do{
+                seleccion = SistemaMenu.menuEditarDuenio();
+                switch (seleccion){
+                    case 1: //Editar nombre
+                        System.out.println("Ingrese el nuevo nombre para el dueño: ");
+                        String nombreActualizado = sc.nextLine();
+                        //duenioEdicion.setNombre(nombreActualizado);
+                        System.out.println("Se ha actualizado el nombre exitosamente");
+                        break;
+    
+    
+                    case 2: //Editar apellidos
+                        System.out.println("Ingrese los nuevos apellidos para el dueño, separados por un espacio: ");
+                        String apellidosActualizados = sc.nextLine();
+                        //duenioEdicion.setApellidos(apellidosActualizados);
+                        System.out.println("Se han actualizado los apellidos exitosamente");
+                        break;
+    
+                    case 3: //Editar direccion
+                        System.out.println("Ingrese la nueva direccion del dueño: ");
+                        String direccionActualizada = sc.nextLine();
+                        //duenioEdicion.setDireccion(direccionActualizada);
+                        System.out.println("Se ha actualizado la direccion exitosamente");
+                        break;
+    
+                    case 4: //Editar telefono
+                        System.out.println("Ingrese el nuevo numero de telefono: ");
+                        String telefonoActualizado = sc.nextLine();
+                        //duenioActualizado.setTelefono(telefonoActualizado);
+                        System.out.println("Se ha actualizado el numero de telefono exitosamente");
+                        break;
+                    
+                    case 5: //Editar ciudad
+                        Ciudad ciudadActualizada = crearCiudad();
+                        System.out.println("Ingrese los nuevos datos para la ciudad...");
+                        //duenioActualizado.setCiudad(ciudadActualizada);
+                        System.out.println("Se ha actualizado la ciudad exitosamente: ");
+                        break;
+    
+                    case 6: //Editar email
+                        System.out.println("Ingrese la nueva direccion de email: ");
+                        String emailActualizado = sc.nextLine();
+                        //duenioActualizado.setEmail(emailActualizado);
+                        System.out.println("Se ha actualiado la direccion de email exitosamente");
+                        break;
+
+                    default:
+                        if (seleccion!=7)
+                            System.out.println("No se ha encontrado la opcion ingresada. \n"+"Por favor ingrese una opcion nuevamente.");
+                            break;
+                        
+                }
+            }while(seleccion!=7);
             
-            System.out.println("Que dato desea actualizar?");
-            //Se debe crear una estructura de control con do while parecida al menu principal.
-            /*
-
-            Cuerpo del metodo
-
-            */
-
-
-
         }else{
             System.out.println("Duenio no encontrado, por favor vuelva a ejecutar el programa");
         }
-
-        
-
-
 
     }
 
@@ -220,6 +302,64 @@ public class SistemaLista {
         //Se crea el objeto de tipo ciudad y se lo retorna
         Ciudad ciudad = new Ciudad(nombre, provincia);
         return ciudad;
+    }
+
+    //Para premios (MEJORAR LA INSERCION DEL AUSPICIANTE)
+
+    public static Premio crearPremios(){
+        boolean tieneAuspiciante = false;
+        System.out.println("Ingrese la descripcion del premio para el primer lugar: ");
+        String descripcion1 = sc.nextLine();
+        System.out.println("Ingrese la descripcion del premio para el segundo lugar: ");
+        String descripcion2 = sc.nextLine();
+        System.out.println("Ingrese la descripcion del premio para el tercer lugar: ");
+        String descripcion3 = sc.nextLine();
+        System.out.println("Sus premios tienen algun auspiciante? ");
+        System.out.println("(Si/no) ");
+        String respuesta = sc.nextLine().toLowerCase();
+
+        //Ojo con esta parte
+        while(!(respuesta.equals("si")||respuesta.equals("no"))){
+            System.out.println("No se detecto una respuesta, por favor intente nuevamente: ");
+            System.out.println("Sus premios tienen algun auspiciante? ");
+            System.out.println("(Si/no) ");
+            respuesta = sc.nextLine().toLowerCase();
+
+        }
+
+        if(respuesta.equals("si")){
+            tieneAuspiciante = true;
+        }
+
+
+        //Se crea el objeto
+        Premio premio = new Premio(descripcion1, descripcion2, descripcion3, tieneAuspiciante);
+        System.out.println("El premio ha sido creado exitosamente");
+        return premio;
+    }
+
+
+    //Crear auspiciante
+    public static Auspiciante crearAuspiciante(){
+        System.out.println("Ingrese el nombre del auspiciante para los premios del concurso: ");
+        String nombre = sc.nextLine();
+        System.out.println("Ingrese la direccion del auspiciante: ");
+        String direccion = sc.nextLine();
+        System.out.println("Ingrese el telefono del auspiciante: ");
+        String telefono = sc.nextLine();
+
+        //Se crea la ciudad con el metodo definido para ciudades
+        Ciudad ciudad = crearCiudad();
+
+        System.out.println("Ingrese el email del auspiciante: ");
+        String email = sc.nextLine();
+        System.out.println("Ingrese la direccion de la pagina web del auspiciante: ");
+        String webPage = sc.nextLine();
+
+        //Se crea el objeto
+        Auspiciante auspiciante = new Auspiciante(nombre, direccion, telefono, ciudad, email, webPage);
+
+        return auspiciante;
     }
 
 
