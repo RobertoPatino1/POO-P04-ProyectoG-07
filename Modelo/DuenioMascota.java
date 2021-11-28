@@ -20,7 +20,6 @@ public class DuenioMascota extends Persona{
         super(null, null, null, null, null);
         this.cedula = cedula;
     }
-
     //Getters
     public String getCedula(){
         return cedula;
@@ -35,6 +34,7 @@ public class DuenioMascota extends Persona{
     public void setApellidos(String apellidos){
         this.apellidos=apellidos;
     }
+    
 
 
     //Este metodo sera usado por el contains para buscar en la lista el elemento que coincida con la cedula ingresada
