@@ -146,7 +146,7 @@ public class Main {
         Ciudad ciudadv = new Ciudad("Guayaquil","Guayas");
         Auspiciante auspiciantev = new Auspiciante("Raul.Salazar","Base.naval.sur.Av25","0991279217",ciudadv,"rausala@espol.edu.ec","http.a");
         Premio premio1 = new Premio("Comida para perro 1 año", "Comida para perro 1/2 año", "Comida para perro 1/4 año",true, auspiciantev);
-        Concurso concursoVigente = new Concurso("OrejasLargas","30/11/2021","13:24","28/11/2021","10/12/2021",ciudadv,"ParqueSamanes",premio1,auspiciantev,TipoAnimal.PERRO,TipoAnimalesConcurso.PERROS);
+        Concurso concursoVigente = new Concurso("OrejasLargas","30/11/2021","13:24","28/11/2021","10/12/2021",ciudadv,"ParqueSamanes",premio1,auspiciantev,TipoAnimalesConcurso.PERROS);
         SistemaLista.registrarConcurso(concursoVigente);
 
         //creacion de 10 mascotas 
