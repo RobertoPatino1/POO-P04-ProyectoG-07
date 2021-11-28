@@ -3,12 +3,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class SistemaLista {
-    private static ArrayList<Concurso> listaConcursos; //Puede contener concursos abiertos o cerrados
-    private static ArrayList<DuenioMascota> listaDuenios;
-    private static ArrayList<Mascota> listaMascotas;
-    private static ArrayList<Ciudad> listaCiudades;
-    private static ArrayList<Auspiciante> listaAuspiciantes;
-    private static ArrayList<Premio> listaPremios;
+    private static ArrayList<Concurso> listaConcursos = new ArrayList<>();; //Puede contener concursos abiertos o cerrados
+    private static ArrayList<DuenioMascota> listaDuenios = new ArrayList<>();
+    private static ArrayList<Mascota> listaMascotas = new ArrayList<>();;
+    private static ArrayList<Ciudad> listaCiudades = new ArrayList<>();;
+    private static ArrayList<Auspiciante> listaAuspiciantes = new ArrayList<>();;
+    private static ArrayList<Premio> listaPremios = new ArrayList<>();;
 
     static Scanner sc = new Scanner(System.in);
 
@@ -146,8 +146,6 @@ public class SistemaLista {
 
 
     public static void editarDuenio(){
-        System.out.println("---Editar duenio---");
-
         System.out.println("Ingresar el id del duenio a editar: ");
 
         String idDuenio = sc.nextLine();
@@ -167,7 +165,7 @@ public class SistemaLista {
                     case 1: //Editar nombre
                         System.out.println("Ingrese el nuevo nombre para el dueño: ");
                         String nombreActualizado = sc.nextLine();
-                        //duenioEdicion.setNombre(nombreActualizado);
+                        duenioEdicion.setNombre(nombreActualizado);
                         System.out.println("Se ha actualizado el nombre exitosamente");
                         break;
     
@@ -175,35 +173,35 @@ public class SistemaLista {
                     case 2: //Editar apellidos
                         System.out.println("Ingrese los nuevos apellidos para el dueño, separados por un espacio: ");
                         String apellidosActualizados = sc.nextLine();
-                        //duenioEdicion.setApellidos(apellidosActualizados);
+                        duenioEdicion.setApellidos(apellidosActualizados);
                         System.out.println("Se han actualizado los apellidos exitosamente");
                         break;
     
                     case 3: //Editar direccion
                         System.out.println("Ingrese la nueva direccion del dueño: ");
                         String direccionActualizada = sc.nextLine();
-                        //duenioEdicion.setDireccion(direccionActualizada);
+                        duenioEdicion.setDireccion(direccionActualizada);
                         System.out.println("Se ha actualizado la direccion exitosamente");
                         break;
     
                     case 4: //Editar telefono
                         System.out.println("Ingrese el nuevo numero de telefono: ");
                         String telefonoActualizado = sc.nextLine();
-                        //duenioActualizado.setTelefono(telefonoActualizado);
+                        duenioEdicion.setTelefono(telefonoActualizado);
                         System.out.println("Se ha actualizado el numero de telefono exitosamente");
                         break;
                     
                     case 5: //Editar ciudad
                         Ciudad ciudadActualizada = crearCiudad();
                         System.out.println("Ingrese los nuevos datos para la ciudad...");
-                        //duenioActualizado.setCiudad(ciudadActualizada);
+                        duenioEdicion.setCiudad(ciudadActualizada);
                         System.out.println("Se ha actualizado la ciudad exitosamente: ");
                         break;
     
                     case 6: //Editar email
                         System.out.println("Ingrese la nueva direccion de email: ");
                         String emailActualizado = sc.nextLine();
-                        //duenioActualizado.setEmail(emailActualizado);
+                        duenioEdicion.setEmail(emailActualizado);
                         System.out.println("Se ha actualiado la direccion de email exitosamente");
                         break;
 
@@ -232,7 +230,7 @@ public class SistemaLista {
         System.out.println("Ingrese el tipo de mascota que se inscribira: ");
         System.out.println("1. Perro");
         System.out.println("2. gato");
-        TipoAnimal tipoAnimal;
+        TipoAnimal tipoAnimal = null;
         String decisionString = sc.nextLine();
         int decision = Integer.valueOf(decisionString);
 
@@ -252,17 +250,24 @@ public class SistemaLista {
         System.out.println("Ingresar la foto de la mascota: ");
         String foto = sc.nextLine();
 
-        System.out.println("Seleccionar al duenio de la mascota: ");
-        //Hacer un print de la lista de duenios
+        System.out.println("Seleccionar el numero del duenio de la mascota: ");
+        int i = 0;
+        for(DuenioMascota duenio: listaDuenios){
+            System.out.println((i+1)+"."+" "+duenio);
+        }
+        //El usuario escoge al duenio de la mascota
+        int eleccionDuenio = sc.nextInt();
+        sc.nextLine();
+        //Se resta 1 al numero seleccionado para acceder directamente a su indice en la lista
+        int indiceDuenioSeleccionado = eleccionDuenio-1;
 
-        //Pedir alguna forma de identificar al duenio
+        //Se obtiene al duenio de la mascota
+        DuenioMascota duenio = listaDuenios.get(indiceDuenioSeleccionado);
 
-        //Guardarlo en una variable y listo
-
-        //Duenio duenio = listaDuenios[n]
-
-        //Mascota mascota = new Mascota(nombre, tipoAnimal, raza, fechaNacimiento, foto, duenio)
-        return null; //Cambiar el return
+        //Se crea el objeto mascota
+        //Se debe corregir esta creacion para asignarle un id a la mascota
+        Mascota mascota = new Mascota(nombre, tipoAnimal, raza, fechaNacimiento, foto, duenio,"ID");
+        return mascota; 
 
     }
 
@@ -326,7 +331,7 @@ public class SistemaLista {
             respuesta = sc.nextLine().toLowerCase();
 
         }
-
+        //Pedirle un auspiciante???
         if(respuesta.equals("si")){
             tieneAuspiciante = true;
         }
