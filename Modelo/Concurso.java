@@ -1,5 +1,7 @@
 package Modelo;
 
+import java.util.ArrayList;
+
 public class Concurso {
     private String nombre;
     private String fechaEvento;
@@ -13,6 +15,9 @@ public class Concurso {
     private TipoAnimalesConcurso dirigidoA;
     private boolean estaAbierto; //True si el concurso esta abierto/ false si esta cerrado
     private boolean concursoFinalizado; //True si el concurso ha terminado
+
+    //Lista de ganadores
+    private ArrayList<Mascota> ganadores;
     
 
     public Concurso(String nombre, String fechaEvento, String horaEvento, String fechaInicioInscripcion, String fechaCierreInscripcion, Ciudad ciudad, String lugar, Premio premio, Auspiciante auspiciante, TipoAnimalesConcurso dirigidoA){
@@ -44,6 +49,17 @@ public class Concurso {
     public void finalizarConcurso(){
         concursoFinalizado = true;
     }
+
+    //Metodo para seleccionar a los ganadores
+    public void seleccionarGanadores(ArrayList<Mascota> ganadores){
+        this.ganadores = ganadores;
+    }
+
+
+
+
+
+
 
     //Getters
 
