@@ -16,6 +16,9 @@ public class Concurso {
     private boolean estaAbierto; //True si el concurso esta abierto/ false si esta cerrado
     private boolean concursoFinalizado; //True si el concurso ha terminado
 
+    //Lista de mascotas inscritas
+    private ArrayList<Mascota> mascotasInscritas;
+
     //Lista de ganadores
     private ArrayList<Mascota> ganadores;
     
