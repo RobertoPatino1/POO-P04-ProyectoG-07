@@ -10,5 +10,11 @@ public class Auspiciante extends Persona{
         super(nombre, direccion, telefono, ciudad, email);
         this.webPage = webPage;
     }
+
+
+    //toString
+    public String toString(){
+        return "Auspiciante: "+super.getNombre();
+    }
     
 }
