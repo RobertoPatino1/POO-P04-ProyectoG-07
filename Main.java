@@ -27,6 +27,7 @@ public class Main {
 
 
         */
+        Main.crearObjetos(); // IMPORTANTES COMPROBAR SI ESTO ESTA BIEN 
 
         Scanner sc = new Scanner(System.in);
         int seleccion;
@@ -135,14 +136,33 @@ public class Main {
         ● Las ciudades Guayaquil, Quito y Cuenca
         ● 3 auspiciantes
         */
+
+        //Concurso pasado
+
+        //concurso vigente
+        System.out.println("---Creacion de Concurso vigente---");
+        SistemaLista.registrarConcurso(SistemaLista.crearConcurso());
+        //creacion de 10 mascotas 
+        System.out.println("---Ingreso de Mascotas---");
+        for (int i=0;i<10;i++){
+            SistemaLista.registrarMascotas(SistemaLista.crearMascota());
+        }
+        //creacion de 10 dueños 
+        System.out.println("---Ingreso de Dueños---");
+        for (int i=0;i<10;i++){
+            SistemaLista.registrarDuenioMascota(SistemaLista.crearDuenio());
+        }
+        //creaccion de 3 ciudades
+        System.out.println("---Ingreso de ciudades---");
+        for (int i=0;i<3;i++){
+            SistemaLista.registrarCiudad(SistemaLista.crearCiudad());
+        }      
+        //creacion de 3 auspiciantes
+        System.out.println("---Ingreso de Auspiciantes---");
+        for (int i=0;i<3;i++){
+            SistemaLista.registrarAuspiciante(SistemaLista.crearAuspiciante());
+        }
         
     }
-
-
-
-
-
-
-
     
 }
