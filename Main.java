@@ -174,8 +174,26 @@ public class Main {
 
         //creacion de 10 dueños 
         System.out.println("---Ingreso de Dueños---");
-        DuenioMascota duenio1 = new DuenioMascota("Mario", "14 y Francisco segura", "3087207", Ciudad ciudad, String email, String cedula, String apellidos)
-        SistemaLista.registrarDuenioMascota();
+        DuenioMascota duenio1 = new DuenioMascota("Mario", "14 y Francisco segura", "3087207", ciudad1 , "mdas2508@gmail.com", "0951120526", "Alava");
+        SistemaLista.registrarDuenioMascota(duenio1);
+        DuenioMascota duenio2 = new DuenioMascota("Josue", "15 y Francisco segura", "3087208", ciudad1 , "correo0001@gmail.com", "0951120527", "Bajaña");
+        SistemaLista.registrarDuenioMascota(duenio2);
+        DuenioMascota duenio3 = new DuenioMascota("Roberto", "16 y Francisco segura", "3087209", ciudad1 , "correo0002@gmail.com", "0951120528", "Patiño");
+        SistemaLista.registrarDuenioMascota(duenio3);
+        DuenioMascota duenio4 = new DuenioMascota("Carlos", "17 y Francisco segura", "3087201", ciudad2 , "correo0003@gmail.com", "0951120529", "Naranjo");
+        SistemaLista.registrarDuenioMascota(duenio4);
+        DuenioMascota duenio5 = new DuenioMascota("Jose", "18 y Francisco segura", "3087202", ciudad2 , "correo0004@gmail.com", "0951120530", "Narvas");
+        SistemaLista.registrarDuenioMascota(duenio5);
+        DuenioMascota duenio6 = new DuenioMascota("Jorge", "19 y Francisco segura", "3087203", ciudad2 , "correo0005@gmail.com", "0951120531", "Camacho");
+        SistemaLista.registrarDuenioMascota(duenio6);
+        DuenioMascota duenio7 = new DuenioMascota("Juan", "20 y Francisco segura", "3087204", ciudad3 , "correo0006@gmail.com", "0951120532", "Sierra");
+        SistemaLista.registrarDuenioMascota(duenio7);
+        DuenioMascota duenio8 = new DuenioMascota("Ronny", "21 y Francisco segura", "3087205", ciudad3 , "correo0007@gmail.com", "0951120533", "Vargas");
+        SistemaLista.registrarDuenioMascota(duenio8);
+        DuenioMascota duenio9 = new DuenioMascota("Luis", "22 y Francisco segura", "3087206", ciudad3 , "correo0008@gmail.com", "0951120534", "Carriel");
+        SistemaLista.registrarDuenioMascota(duenio9);
+        DuenioMascota duenio10 = new DuenioMascota("Kennet", "23 y Francisco segura", "3087210", ciudad2 , "correo0009@gmail.com", "0951120535", "Lima");
+        SistemaLista.registrarDuenioMascota(duenio10);
 
         //creaccion de 3 ciudades
         System.out.println("---Ingreso de ciudades---");
