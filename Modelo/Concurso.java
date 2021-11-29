@@ -1,13 +1,14 @@
 package Modelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Concurso {
     private String nombre;
-    private String fechaEvento;
+    private LocalDate fechaEvento;
     private String horaEvento;
-    private String fechaInicioInscripcion;
-    private String fechaCierreInscripcion;
+    private LocalDate fechaInicioInscripcion;
+    private LocalDate fechaCierreInscripcion;
     private Ciudad ciudad;
     private String lugar;
     private Premio premio; 
@@ -24,7 +25,7 @@ public class Concurso {
     private ArrayList<Mascota> ganadores = new ArrayList<>();
     
 
-    public Concurso(String nombre, String fechaEvento, String horaEvento, String fechaInicioInscripcion, String fechaCierreInscripcion, Ciudad ciudad, String lugar, Premio premio, Auspiciante auspiciante, TipoAnimalesConcurso dirigidoA){
+    public Concurso(String nombre, LocalDate fechaEvento, String horaEvento, LocalDate fechaInicioInscripcion, LocalDate fechaCierreInscripcion, Ciudad ciudad, String lugar, Premio premio, Auspiciante auspiciante, TipoAnimalesConcurso dirigidoA){
 
         
         this.nombre= nombre;
@@ -120,7 +121,7 @@ public class Concurso {
             return "Nombre: "+nombre+"|"+"Fecha: "+fechaEvento+"|"+"Hora: "+horaEvento+"|"+"Lugar: "+lugar+"|"+"Dirigido a: "+dirigidoA+"|"+"Estado: Finalizado";
 
         }
-        return "Nombre: "+nombre+"|"+"Fecha: "+fechaEvento+"|"+"Hora: "+horaEvento+"|"+"Lugar: "+lugar+"|"+"Dirigido a: "+dirigidoA;
+        return "Nombre: "+nombre+"|"+"Fecha: "+fechaEvento+"|"+"Hora: "+horaEvento+"|"+"Lugar: "+lugar+"|"+"Dirigido a: "+dirigidoA+"Fecha de inicio de inscripciones: "+fechaInicioInscripcion+"|"+"Fecha de cierre de inscripciones: "+fechaCierreInscripcion+"|"+"Estado: Abierto";
     }
 
 
