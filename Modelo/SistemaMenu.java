@@ -49,7 +49,7 @@ public class SistemaMenu {
 
     //Menu que se usa para editar al duenio de una mascota
     public static int menuEditarDuenio(){
-        System.out.println("---Menu de edicion para duenios---");
+        System.out.println(">>>Menu de edicion para duenios<<<");
         System.out.println("Selecciona una opcion");
         System.out.println("1. Editar nombre");
         System.out.println("2. Actualizar apellidos");
