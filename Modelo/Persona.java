@@ -52,6 +52,6 @@ public class Persona{
 
     //Metodo toString
     public String toString(){
-        return "Nombre: "+nombre+"|"+"Ciudad: "+ciudad.getNombre()+"|";
+        return "Nombre: "+nombre+"|"+"Ciudad:"+ciudad.getNombre()+"|";
     }
 }
