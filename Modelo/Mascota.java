@@ -1,10 +1,12 @@
 package Modelo;
 
+import java.time.LocalDate;
+
 public class Mascota {
     private String nombre;
     private TipoAnimal tipoMascota;
     private String raza;
-    private String fechaDeNacimiento;
+    private LocalDate fechaDeNacimiento;
     private String foto;
     private DuenioMascota duenio;
     private String id;
@@ -12,7 +14,7 @@ public class Mascota {
     private boolean haParticipado;
 
     //Constructor que inicializa los atributos
-    public Mascota(String nombre, TipoAnimal tipoMascota, String raza, String fechaDeNacimiento, String foto, DuenioMascota duenio, String id){
+    public Mascota(String nombre, TipoAnimal tipoMascota, String raza, LocalDate fechaDeNacimiento, String foto, DuenioMascota duenio, String id){
         this.nombre = nombre;
         this.tipoMascota = tipoMascota;
         this.raza = raza;
@@ -21,6 +23,7 @@ public class Mascota {
         this.duenio = duenio;
         this.id = id;
         this.disponibleParaFuturasInscripciones = true;
+        this.haParticipado = false; //Se intuye que ninguna mascota ha participado en un concurso
     }
     
     //Constructor con solo el id de la mascota
@@ -40,10 +43,17 @@ public class Mascota {
     public boolean getDisponibilidad(){
         return disponibleParaFuturasInscripciones;
     }
+    public boolean getParticipacion(){
+        return haParticipado;
+    }
 
     //Setters
     public void setDisponibilidadDeInscripciones(boolean disp){
         this.disponibleParaFuturasInscripciones = disp;
+    }
+    
+    public void setParticipacion(boolean part){
+        this.haParticipado = part;
     }
 
 
@@ -67,7 +77,14 @@ public class Mascota {
     //toString()
     //Sera usado al momento de mostrar las listas de mascotas por pantalla
     public String toString(){
-        return "Nombre: "+nombre+"|"+"Tipo de mascota: "+tipoMascota+"|||"+"Dueño--> "+duenio+"|"+"ID: "+id;
+        if(disponibleParaFuturasInscripciones){
+            return "Nombre: "+nombre+"|"+"Tipo de mascota: "+tipoMascota+"|||"+"Dueño--> "+duenio+"|"+"ID: "+id+"|"+"-Disponible para inscripciones-";
+
+        }else{
+            return "Nombre: "+nombre+"|"+"Tipo de mascota: "+tipoMascota+"|||"+"Dueño--> "+duenio+"|"+"ID: "+id+"|"+"-No disponible para inscripciones-";
+
+        }
+        
     }
     
 }
