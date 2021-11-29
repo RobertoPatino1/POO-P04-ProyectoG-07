@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+import java.time.LocalDate;
 
 import Modelo.*;
 
@@ -14,6 +14,7 @@ public class Main {
         int seleccion1;
         int seleccion2;
         int seleccion3;
+        
 
       
 
@@ -198,7 +199,7 @@ public class Main {
         //Concurso vigente        
         Auspiciante auspiciantev = new Auspiciante("Raul.Salazar","Base.naval.sur.Av25","0991279217",ciudad1,"rausala@espol.edu.ec","http.a");
         Premio premio1 = new Premio("Comida para perro 1 año", "Comida para perro 1/2 año", "Comida para perro 1/4 año",true, auspiciantev);
-        Concurso concursoVigente = new Concurso("Orejas Largas","30/11/2021","13:24","28/11/2021","10/12/2021",ciudad1,"ParqueSamanes",premio1,auspiciantev,TipoAnimalesConcurso.PERROS);
+        Concurso concursoVigente = new Concurso("Orejas Largas",LocalDate.of(2021,11,30),"13:24",LocalDate.of(2021,11,28),LocalDate.of(2021,12,10),ciudad1,"ParqueSamanes",premio1,auspiciantev,TipoAnimalesConcurso.PERROS);
         SistemaLista.registrarConcurso(concursoVigente);
 
         //Concurso pasado
@@ -223,6 +224,14 @@ public class Main {
         ganadores.add(mascota3);
         //Se finaliza el concurso
         concursoPasado.finalizarConcurso();
+
+        //Se indica que las mascotas 1,2,3,4 y 5 ya han participado
+        //Es decir estas mascotas al ser eliminadas, quedaran en el registro pero ya no estaran disponibles para participar
+        mascota1.setParticipacion(true);
+        mascota2.setParticipacion(true);
+        mascota3.setParticipacion(true);
+        mascota4.setParticipacion(true);
+        mascota5.setParticipacion(true);
 
         }
         
