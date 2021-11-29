@@ -3,6 +3,11 @@ import java.util.Scanner;
 import java.time.LocalDate;
 
 import Modelo.*;
+import Modelo.SistemaClases.SistemaConcurso;
+import Modelo.SistemaClases.SistemaDuenioMascota;
+import Modelo.SistemaClases.SistemaLista;
+import Modelo.SistemaClases.SistemaMascota;
+import Modelo.SistemaClases.SistemaMenu;
 
 public class Main {
     public static void main(String[] args) {
@@ -29,7 +34,7 @@ public class Main {
                     if (seleccion1 == 1){
                         //Creacion de un concurso
                         System.out.println("---Creacion de concurso---");
-                        Concurso concurso = SistemaLista.crearConcurso();
+                        Concurso concurso = SistemaConcurso.crearConcurso();
                         //Se alacena al concurso en la lista de concursos
                         SistemaLista.registrarConcurso(concurso);
                         break;
@@ -37,7 +42,7 @@ public class Main {
                     }else if(seleccion1 == 2){
                         //Inscripcion de participante
                         System.out.println("---Inscripcion de participante---");
-                        SistemaLista.inscribirParticipantes();
+                        SistemaConcurso.inscribirParticipantes();
                         break;
                     }else if (seleccion1 == 3){
                         //Regresar al menu principal
@@ -54,7 +59,7 @@ public class Main {
                     seleccion2 = SistemaMenu.menuDuenios();
                     if (seleccion2 == 4){
                         System.out.println("---Crear duenio---");
-                        DuenioMascota duenioCreado = SistemaLista.crearDuenio(); //Se crea el duenio de la mascota
+                        DuenioMascota duenioCreado = SistemaDuenioMascota.crearDuenio(); //Se crea el duenio de la mascota
 
                         //Luego se agrega este duenio creado a la lista de duenios
                         SistemaLista.registrarDuenioMascota(duenioCreado);
@@ -62,7 +67,7 @@ public class Main {
                     }else if(seleccion2 == 5){
                         //Editar duenio
                         System.out.println("---Editar duenio---");
-                        SistemaLista.editarDuenio();
+                        SistemaDuenioMascota.editarDuenio();
                         break;
 
                     }else if(seleccion2 == 6){
@@ -80,7 +85,7 @@ public class Main {
                     if (seleccion3 == 7){
                         //Crear mascota
                         System.out.println("---Crear mascota---");
-                        Mascota mascotaCreada = SistemaLista.crearMascota();
+                        Mascota mascotaCreada = SistemaMascota.crearMascota();
                         //Se agrega la mascota a la lista
                         SistemaLista.registrarMascotas(mascotaCreada);
                         break;
@@ -88,7 +93,7 @@ public class Main {
                     }else if(seleccion3 == 8){
                         //Eliminar mascota
                         System.out.println("---Eliminar mascota---");
-                        SistemaLista.eliminarMascota();
+                        SistemaMascota.eliminarMascota();
                         
                         break;
                         
