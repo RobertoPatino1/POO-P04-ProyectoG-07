@@ -26,6 +26,10 @@ public class SistemaPrograma {
                     System.out.println("Se muestra una lista con todos los concursos existentes \n");
                     SistemaLista.visualizarListaConcursos(); //Se muestra la lista de concursos
                     seleccion1 = SistemaMenu.menuConcursos();
+                    while(seleccion1!=1&&seleccion1!=2&&seleccion1!=3){
+                        System.out.println("Opcion no valida, intente nuevamente");
+                        seleccion1 = SistemaMenu.menuConcursos();
+                    }
                     if (seleccion1 == 1){
                         //Creacion de un concurso
                         System.out.println("---Creacion de concurso---");
@@ -52,6 +56,10 @@ public class SistemaPrograma {
                     System.out.println("Se muestra una lista con todos los duenios existentes \n");
                     SistemaLista.visualizarListaDuenios();
                     seleccion2 = SistemaMenu.menuDuenios();
+                    while(seleccion2!=4&&seleccion2!=5&&seleccion2!=6){
+                        System.out.println("Opcion no valida, intente nuevamente");
+                        seleccion2 = SistemaMenu.menuDuenios();
+                    }
                     if (seleccion2 == 4){
                         System.out.println("---Crear duenio---");
                         DuenioMascota duenioCreado = SistemaDuenioMascota.crearDuenio(); //Se crea el duenio de la mascota
@@ -77,6 +85,10 @@ public class SistemaPrograma {
                     System.out.println("Se muestra una lista con todas las mascotas existentes \n");
                     SistemaLista.visualizarListaMascotas();
                     seleccion3 = SistemaMenu.menuMascotas();
+                    while(seleccion3!=7&&seleccion3!=8&&seleccion3!=9){
+                        System.out.println("Opcion no valida, intente nuevamente");
+                        seleccion3 = SistemaMenu.menuMascotas();
+                    }
                     if (seleccion3 == 7){
                         //Crear mascota
                         System.out.println("---Crear mascota---");
