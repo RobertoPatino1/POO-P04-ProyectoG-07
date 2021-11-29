@@ -162,25 +162,25 @@ public class Main {
         //creacion de 10 mascotas 
         
         //Se crean y registran las 10 mascotas
-        Mascota mascota1 = new Mascota("Pinky",TipoAnimal.PERRO,"Salchica","24/08/2005","http1",duenio1,"2005");
+        Mascota mascota1 = new Mascota("Pinky",TipoAnimal.PERRO,"Salchica",LocalDate.of(2005,8,24),"http1",duenio1,"2005");
         SistemaLista.registrarMascotas(mascota1);
-        Mascota mascota2 = new Mascota("Balto",TipoAnimal.PERRO,"Huzky","14/03/1933","http2",duenio2,"1933");
+        Mascota mascota2 = new Mascota("Balto",TipoAnimal.PERRO,"Huzky",LocalDate.of(1933,03,14),"http2",duenio2,"1933");
         SistemaLista.registrarMascotas(mascota2);
-        Mascota mascota3 = new Mascota("Krypto",TipoAnimal.PERRO,"Samoyendo","02/03/1955","http3",duenio3,"0210");
+        Mascota mascota3 = new Mascota("Krypto",TipoAnimal.PERRO,"Samoyendo",LocalDate.of(1955,3,02),"http3",duenio3,"0210");
         SistemaLista.registrarMascotas(mascota3);
-        Mascota mascota4 = new Mascota("Goofy",TipoAnimal.PERRO,"Aberdeen","17/09/1967","http4",duenio4,"1967");
+        Mascota mascota4 = new Mascota("Goofy",TipoAnimal.PERRO,"Aberdeen",LocalDate.of(1967,9,17),"http4",duenio4,"1967");
         SistemaLista.registrarMascotas(mascota4);
-        Mascota mascota5 = new Mascota("Scooby",TipoAnimal.PERRO,"Danes","13/05/1969","http5",duenio5,"1969");
+        Mascota mascota5 = new Mascota("Scooby",TipoAnimal.PERRO,"Danes",LocalDate.of(1969,5,13),"http5",duenio5,"1969");
         SistemaLista.registrarMascotas(mascota5);
-        Mascota mascota6 = new Mascota("Garfiel",TipoAnimal.GATO,"Birmano","19/06/1966","http6",duenio6,"1966");
+        Mascota mascota6 = new Mascota("Garfiel",TipoAnimal.GATO,"Birmano",LocalDate.of(1966,6,19),"http6",duenio6,"1966");
         SistemaLista.registrarMascotas(mascota6);
-        Mascota mascota7 = new Mascota("Silvestre",TipoAnimal.GATO,"Silvestris","14/05/1945","http7",duenio7,"0103");
+        Mascota mascota7 = new Mascota("Silvestre",TipoAnimal.GATO,"Silvestris",LocalDate.of(1945,5,14),"http7",duenio7,"0103");
         SistemaLista.registrarMascotas(mascota7);
-        Mascota mascota8 = new Mascota("Garry",TipoAnimal.GATO,"caracol","23/10/1955","http8",duenio8,"1955");
+        Mascota mascota8 = new Mascota("Garry",TipoAnimal.GATO,"caracol",LocalDate.of(1955,10,23),"http8",duenio8,"1955");
         SistemaLista.registrarMascotas(mascota8);
-        Mascota mascota9 = new Mascota("Doraemon",TipoAnimal.GATO,"Birmano","01/12/1969","http9",duenio9,"1969");
+        Mascota mascota9 = new Mascota("Doraemon",TipoAnimal.GATO,"Birmano",LocalDate.of(1969,12,1),"http9",duenio9,"1969");
         SistemaLista.registrarMascotas(mascota9);
-        Mascota mascota10 = new Mascota("Chiquito",TipoAnimal.GATO,"Romano","24/08/2005","http10",duenio10,"2000");
+        Mascota mascota10 = new Mascota("Chiquito",TipoAnimal.GATO,"Romano",LocalDate.of(2005,8,24),"http10",duenio10,"2000");
         SistemaLista.registrarMascotas(mascota10);
 
         //creacion de 3 auspiciantes
@@ -203,7 +203,7 @@ public class Main {
         SistemaLista.registrarConcurso(concursoVigente);
 
         //Concurso pasado
-        Concurso concursoPasado = new Concurso("Patitas felices", "28/11/2020", "16:00", "28/10/2020", "25/11/2020", ciudad1, "Parque centenario", premio1, auspiciantev, TipoAnimalesConcurso.TODOS);
+        Concurso concursoPasado = new Concurso("Patitas felices", LocalDate.of(2020,11,28), "16:00", LocalDate.of(2020,10,28), LocalDate.of(2020,11,25), ciudad1, "Parque centenario", premio1, auspiciantev, TipoAnimalesConcurso.TODOS);
         //Se cierra el concurso y se lo finaliza
 
         
