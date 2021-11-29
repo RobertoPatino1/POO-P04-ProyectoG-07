@@ -61,6 +61,7 @@ public class SistemaLista {
         }
 
         //Se crea el concurso: 
+        System.out.println("Se ha creado el concurso exitosamente");
         Concurso concurso = new Concurso(nombre, fecha, hora, fechaInicio, fechaCierre, ciudad, lugar, premio, auspiciante, tipoAnimalesConcurso);
         return concurso;
     }
@@ -139,6 +140,7 @@ public class SistemaLista {
 
 
         //Se crea el objeto
+        System.out.println("Se ha creado el dueño exitosamente");
         DuenioMascota duenio = new DuenioMascota(nombreDuenio, direccionDuenio, telefonoDuenio, ciudadDuenio, emailDuenio, cedulaDuenio, apellidosDuenio);
         //Sera que se lo agrega a la lista de Duenios de una?
         return duenio;
@@ -221,8 +223,7 @@ public class SistemaLista {
 
     //Para mascotas
     public static Mascota crearMascota(){
-        //Se debe mostrar la lista de mascotas
-        System.out.println(listaMascotas);
+
 
         System.out.println("Ingrese el nombre de la mascota: ");
         String nombre = sc.nextLine();
@@ -234,6 +235,14 @@ public class SistemaLista {
         String decisionString = sc.nextLine();
         int decision = Integer.valueOf(decisionString);
 
+        while(decision!=1&&decision!=2){
+            System.out.println("Opcion no encontrada, por favor intente nuevamente.");
+            System.out.println("Ingrese el tipo de mascota que se inscribira: ");
+            System.out.println("1. Perro");
+            System.out.println("2. gato");
+            decisionString = sc.nextLine();
+            decision = Integer.valueOf(decisionString);
+        }
         if(decision==1){
             tipoAnimal = TipoAnimal.PERRO;
         }else if(decision==2){
@@ -253,7 +262,7 @@ public class SistemaLista {
         System.out.println("Seleccionar el numero del duenio de la mascota: ");
         int i = 0;
         for(DuenioMascota duenio: listaDuenios){
-            System.out.println((i+1)+"."+" "+duenio);
+            System.out.println((i+=1)+"."+" "+duenio);
         }
         //El usuario escoge al duenio de la mascota
         int eleccionDuenio = sc.nextInt();
@@ -264,16 +273,20 @@ public class SistemaLista {
         //Se obtiene al duenio de la mascota
         DuenioMascota duenio = listaDuenios.get(indiceDuenioSeleccionado);
 
+        //Se crea el id de la mascota y se le notifica al usuario
+        String id = crearIdMascota(4);
+        System.out.println("El ID asignado a su mascota es: "+id);
+
         //Se crea el objeto mascota
-        //Se debe corregir esta creacion para asignarle un id a la mascota
-        Mascota mascota = new Mascota(nombre, tipoAnimal, raza, fechaNacimiento, foto, duenio,"ID");
+        Mascota mascota = new Mascota(nombre, tipoAnimal, raza, fechaNacimiento, foto, duenio,id);
+        System.out.println("Se ha creado la mascota exitosamente");
         return mascota; 
 
     }
 
     public static void eliminarMascota(){
         System.out.println("Ingrese el id de la mascota que desea eliminar de la lista: ");
-        String id = sc.nextLine();
+        String id = sc.nextLine().toUpperCase();
         //Se crea la mascota de busqueda solo con el id
         Mascota mascotaBusqueda = new Mascota(id);
 
@@ -287,6 +300,7 @@ public class SistemaLista {
             listaMascotas.remove(mascotaEliminar);
 
         }else{
+            //No vamos a usar un bucle while para evitar problemas de input para datos
             System.out.println("No se ha encontrado la mascota solicitada, por favor vuelva a ejecutar");
         }
 
@@ -305,6 +319,7 @@ public class SistemaLista {
         String provincia = sc.nextLine();
         
         //Se crea el objeto de tipo ciudad y se lo retorna
+        System.out.println("Se ha creado la ciudad exitosamente");
         Ciudad ciudad = new Ciudad(nombre, provincia);
         return ciudad;
     }
@@ -326,7 +341,7 @@ public class SistemaLista {
         Auspiciante ausp = null;
 
         //Ojo con esta parte
-        while(!(respuesta.equals("si")||respuesta.equals("no"))){
+        while(!respuesta.equals("si")&&!respuesta.equals("no")){
             System.out.println("No se detecto una respuesta, por favor intente nuevamente: ");
             System.out.println("Sus premios tienen algun auspiciante? ");
             System.out.println("(Si/no) ");
@@ -339,7 +354,7 @@ public class SistemaLista {
             tieneAuspiciante = true;
             System.out.println("Seleccione el auspiciante para sus premios: ");
             for(Auspiciante auspFor: listaAuspiciantes){
-                System.out.println((i+1)+". "+auspFor);
+                System.out.println((i+=1)+". "+auspFor);
                 
             }
             int eleccion = sc.nextInt();
@@ -348,7 +363,7 @@ public class SistemaLista {
                 System.out.println("No se ha encontrado el auspiciante, por favor vuelva a ejecutar el programa");
                 return null;
             }
-            ausp = listaAuspiciantes.get(i-1); //Se selecciona el auspiciante del indice escogido
+            ausp = listaAuspiciantes.get(eleccion-1); //Se selecciona el auspiciante del indice escogido
 
             
 
@@ -380,8 +395,10 @@ public class SistemaLista {
         String webPage = sc.nextLine();
 
         //Se crea el objeto
+        System.out.println("Se ha creado el auspiciante exitosamente");
         Auspiciante auspiciante = new Auspiciante(nombre, direccion, telefono, ciudad, email, webPage);
 
+        
         return auspiciante;
     }
 
@@ -440,6 +457,36 @@ public class SistemaLista {
 
     public static void visualizarListaAuspiciantes(){
         System.out.println(listaAuspiciantes);
+    }
+    
+
+
+    //Metodo para crear un id aleatorio para las mascotas
+
+    public static String crearIdMascota(int i) 
+    { 
+        String theAlphaNumericS;
+        StringBuilder builder;
+        
+        theAlphaNumericS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                                    + "0123456789"; 
+
+        //create the StringBuffer
+        builder = new StringBuilder(i); 
+
+        for (int m = 0; m < i; m++) { 
+
+            // generate numeric
+            int myindex 
+                = (int)(theAlphaNumericS.length() 
+                        * Math.random()); 
+
+            // add the characters
+            builder.append(theAlphaNumericS 
+                        .charAt(myindex)); 
+        } 
+
+        return builder.toString();
     }
     
 }
