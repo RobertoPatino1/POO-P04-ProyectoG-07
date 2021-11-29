@@ -1,10 +1,11 @@
 package Modelo;
-import java.util.ArrayList; //Usar arrayLists para los premios?
+import java.util.ArrayList;
+
 public class Premio {
     private String descripcionPrimerLugar;
     private String descripcionSegundoLugar;
     private String descripcionTercerLugar;
-    private boolean tieneAuspiciante; //OJOOOOOOOOOOOOOOOOO
+    private boolean tieneAuspiciante;
     private Auspiciante auspiciante;
 
     public Premio(String sP, String dS, String dT,boolean tA){
@@ -13,6 +14,8 @@ public class Premio {
         this.descripcionTercerLugar = dT;
         this.tieneAuspiciante = tA;
     }  
+
+    //Constructor que inicializa todos los atributos
     public Premio(String sP, String dS, String dT,boolean tA, Auspiciante auspiciante){
         this.descripcionPrimerLugar = sP;
         this.descripcionSegundoLugar = dS;
@@ -27,10 +30,7 @@ public class Premio {
     }
 
     //ToString
-
     //Retorna un String con la info tal y como se muestra en el pdf
-
-    //Verificar el uso de el boolean tieneAuspiciante
     public String toString(){
         return "Primer lugar: "+descripcionPrimerLugar+"|"+"Segundo lugar: "+descripcionSegundoLugar+"|"+"Tercer lugar: "+descripcionTercerLugar;
     }
