@@ -182,7 +182,7 @@ public class SistemaPrograma {
         SistemaLista.registrarMascotas(mascota7);
         Mascota mascota8 = new Mascota("Garry",TipoAnimal.GATO,"caracol",LocalDate.of(1955,10,23),"http8",duenio8,"1955");
         SistemaLista.registrarMascotas(mascota8);
-        Mascota mascota9 = new Mascota("Doraemon",TipoAnimal.GATO,"Birmano",LocalDate.of(1969,12,1),"http9",duenio9,"1969");
+        Mascota mascota9 = new Mascota("Doraemon",TipoAnimal.GATO,"Birmano",LocalDate.of(1969,12,1),"http9",duenio9,"1968");
         SistemaLista.registrarMascotas(mascota9);
         Mascota mascota10 = new Mascota("Chiquito",TipoAnimal.GATO,"Romano",LocalDate.of(2005,8,24),"http10",duenio10,"2000");
         SistemaLista.registrarMascotas(mascota10);
