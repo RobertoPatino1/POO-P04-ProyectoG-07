@@ -1,4 +1,5 @@
 package Modelo;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,6 +10,7 @@ public class SistemaLista {
     private static ArrayList<Ciudad> listaCiudades = new ArrayList<>();;
     private static ArrayList<Auspiciante> listaAuspiciantes = new ArrayList<>();;
     private static ArrayList<Premio> listaPremios = new ArrayList<>();;
+    private static ArrayList<Concurso> listaConcursosAbiertos = new ArrayList<>();
 
     static Scanner sc = new Scanner(System.in);
 
@@ -21,51 +23,32 @@ public class SistemaLista {
         System.out.println("Ingrese el nombre del concurso a crear: ");
         System.out.print(">>> ");
         String nombre = sc.nextLine();
-        System.out.println("Ingrese la fecha del concurso: ");
-        System.out.print(">>> ");
-        String fecha = sc.nextLine();
+        System.out.println("--Datos para la fecha del concurso--");
+        LocalDate fechaConcurso = crearFecha();
+
         System.out.println("Ingrese la hora del concurso: ");
         System.out.print(">>> ");
         String hora = sc.nextLine();
-        System.out.println("Ingrese la fecha de inicio de las inscripciones: ");
-        System.out.print(">>> ");
-        String fechaInicio = sc.nextLine();
-        System.out.println("Ingrese la fecha de cierre para las inscripciones: ");
-        System.out.print(">>> ");
-        String fechaCierre = sc.nextLine();
+
+        System.out.println("--Datos para la fecha de inicio de las inscripciones--");
+        LocalDate fechaInicioInscripciones = crearFecha();
+        System.out.println("--Datos para la fecha de cierre para las inscripciones--");
+        LocalDate fechaCierreInscripciones = crearFecha();
         
         
-        Ciudad ciudad = crearCiudad(); //Se usa un metodo definido en esta misma clase
+        Ciudad ciudad = seleccionarCiudad();
         
         System.out.println("Ingrese el lugar donde se llevará a cabo el concurso: ");
         System.out.print(">>> ");
         String lugar = sc.nextLine();
 
-        //Se piden datos para el auspiciante
-        System.out.println("Desea agregar un auspiciante nuevo a la lista de auspiciantes para su concurso?\n (Si/No)");
-        String respuesta = sc.nextLine().toLowerCase();
-        while(!respuesta.equals("si")&&!respuesta.equals("no")){
-            System.out.println("Respuesta no valida, por favor ingrese si o no.");
-            System.out.println("Desea agregar un auspiciante nuevo a la lista de auspiciantes para su concurso?\n (Si/No)");
-            respuesta = sc.nextLine().toLowerCase();
-        }
-        Auspiciante auspiciante = null;
-        if(respuesta.equals("si")){
-            auspiciante = crearAuspiciante();
-            //Se lo registra en la lista
-            if(auspiciante!=null)
-                listaAuspiciantes.add(auspiciante);
-
-        }
-
+        //Se escoge al auspiciante
+        Auspiciante auspiciante = seleccionarAuspiciante();
 
         //Se piden datos para el premio
         Premio premio = crearPremios();
         //Se lo registra en la lista
         listaPremios.add(premio);
-
-
-
         System.out.println("Para quien esta dirigido el concurso: ");
         TipoAnimalesConcurso tipoAnimalesConcurso = null; //Se coloca la variable como null para empezar
         System.out.println("1. Perros \n"+"2. Gatos \n"+"3. Todos");
@@ -85,11 +68,12 @@ public class SistemaLista {
             System.out.println("1. Perros \n"+"2. Gatos \n"+"3. Todos");
             System.out.print(">>> ");
             seleccion = sc.nextInt();
+            sc.nextLine();
         }
 
         //Se crea el concurso: 
         System.out.println("Se ha creado el concurso exitosamente");
-        Concurso concurso = new Concurso(nombre, fecha, hora, fechaInicio, fechaCierre, ciudad, lugar, premio, auspiciante, tipoAnimalesConcurso);
+        Concurso concurso = new Concurso(nombre, fechaConcurso, hora, fechaInicioInscripciones, fechaCierreInscripciones, ciudad, lugar, premio, auspiciante, tipoAnimalesConcurso);
         return concurso;
     }
 
@@ -101,47 +85,59 @@ public class SistemaLista {
         
         for(Concurso concurso: listaConcursos){
             if (concurso.getEstaAbierto()){
-                System.out.println((i+1)+". "+concurso);
+                listaConcursosAbiertos.add(concurso); //Se agrega al concurso a la lista de concursos abiertos
+                System.out.println((i+=1)+". "+concurso);
             }
         }
 
         //Se solicita ingresar el codigo del concurso y el id de la mascota
         //Para esto se debe verificar que la mascota este en la lista de mascotas
-        System.out.println("Ingrese el nombre del concurso en el que se va a registrar al participante: ");
+        System.out.println("Ingrese el numero del concurso en el que se va a registrar al participante"+" (0-"+listaConcursosAbiertos.size()+"): ");
+
+
         System.out.print(">>> ");
         
-        String codigoConcurso = sc.nextLine();
+        int indice = sc.nextInt()-1;
+        sc.nextLine();
+        while(indice<0&&indice>=listaConcursosAbiertos.size()){
+            System.out.println("Concurso no encontrado, por favor ingrese un valor valido");
+            System.out.println("Ingrese el numero del concurso en el que se va a registrar al participante"+" (0-"+listaConcursosAbiertos.size()+"): ");
 
-        //Se crea un concurso de busqueda con el codigo ingresado
-        Concurso concursoBusqueda = new Concurso(codigoConcurso);
 
-        if(listaConcursos.contains(concursoBusqueda)){
-            //Se accede al elemento:
-            int indice = listaConcursos.indexOf(concursoBusqueda);
-            Concurso concurso = listaConcursos.get(indice); //Se obtiene el concurso referido y se accede a el
-
-            System.out.println("El concurso: "+concurso.getNombre()+" fue encontrado exitosamente");
-
-            //Inscripcion de la mascota
-            System.out.println("Ingrese el id de la mascota a inscribir");
             System.out.print(">>> ");
-            String idIngresado = sc.nextLine();
-            Mascota mascotaBusqueda = new Mascota(idIngresado);
+            indice = sc.nextInt()-1;
+            sc.nextLine();
+        }
 
-            if(listaMascotas.contains(mascotaBusqueda)){
-                //Se registra a la mascota en el concurso especificado
-                int indice2 = listaMascotas.indexOf(mascotaBusqueda);
-                Mascota mascotaRegistro = listaMascotas.get(indice2);
+        //Se busca en la lista el concurso
+        Concurso concurso = listaConcursosAbiertos.get(indice);
+        System.out.println("El concurso: "+concurso.getNombre()+" fue encontrado exitosamente");
+
+        //Inscripcion de la mascota
+        System.out.println("Ingrese el id de la mascota a inscribir");
+        System.out.print(">>> ");
+        String idIngresado = sc.nextLine();
+        Mascota mascotaBusqueda = new Mascota(idIngresado);
+
+        if(listaMascotas.contains(mascotaBusqueda)){
+            //Se registra a la mascota en el concurso especificado
+            int indice2 = listaMascotas.indexOf(mascotaBusqueda);
+            Mascota mascotaRegistro = listaMascotas.get(indice2);
+            if(mascotaRegistro.getDisponibilidad()==false){
+                System.out.println("La mascota seleccionada no se encuentra disponible para inscripciones");
+            }else{
+                mascotaRegistro.setParticipacion(true); //Se indica que la mascota esta participando
                 concurso.inscribirParticipantes(mascotaRegistro); 
                 System.out.println("La mascota fue encontrada y registrada exitosamente");
 
-            }else{
-                System.out.println("La mascota no fue encontrada, ejecute el programa nuevamente");
             }
+            
 
         }else{
-            System.out.println("El codigo del concurso no fue encontrado, vuelva a ejecutar el programa");
+            System.out.println("La mascota no fue encontrada, ejecute el programa nuevamente");
         }
+
+        
             
         
     }
@@ -168,19 +164,11 @@ public class SistemaLista {
         System.out.println("Ingrese el telefono del duenio: ");
         System.out.print(">>> ");
         String telefonoDuenio = sc.nextLine();
-        System.out.println("Ingrese el nombre de la ciudad en la que reside el duenio: ");
-        System.out.print(">>> ");
-        String nombreCiudad = sc.nextLine();
-        System.out.println("Ingrese el nombre de la provincia en la que reside el duenio: ");
-        System.out.print(">>> ");
-        String provinciaDuenio = sc.nextLine();
         System.out.println("Ingrese el email del duenio: ");
         System.out.print(">>> ");
         String emailDuenio = sc.nextLine();
 
-        //Creando el objeto de tipo ciudad
-        Ciudad ciudadDuenio = new Ciudad(nombreCiudad,provinciaDuenio);
-
+        Ciudad ciudadDuenio = seleccionarCiudad();
 
         //Se crea el objeto
         System.out.println("Se ha creado el dueño exitosamente");
@@ -305,8 +293,7 @@ public class SistemaLista {
         String raza = sc.nextLine();
 
         System.out.println("Ingrese la fecha de nacimiento aproximada de la mascota: ");
-        System.out.print(">>> ");
-        String fechaNacimiento = sc.nextLine(); //Corregir esto
+        LocalDate fechaNacimiento = crearFecha();
 
         System.out.println("Ingresar la foto de la mascota: ");
         System.out.print(">>> ");
@@ -352,8 +339,14 @@ public class SistemaLista {
             //Se coloca que esta mascota ya no estara disponible para futuras inscripciones
             mascotaEliminar.setDisponibilidadDeInscripciones(false);
             //Se elimina a la mascota de la lista
-            System.out.println("Se ha eliminado a la mascota "+mascotaEliminar.getNombre());
-            listaMascotas.remove(mascotaEliminar);
+
+            //En caso de que haya participado se mantiene el registro
+            if(mascotaEliminar.getParticipacion()){
+                System.out.println("Se ha eliminado a la mascota "+mascotaEliminar.getNombre()+" para futuras inscripciones");
+            }else{
+                System.out.println("Se ha eliminado de la lista a la mascota "+mascotaEliminar.getNombre());
+                listaMascotas.remove(mascotaEliminar); //Se la elimina de la lista solo si no ha participado anteriormente
+            }
 
         }else{
             //No vamos a usar un bucle while para evitar problemas de input para datos
@@ -540,6 +533,55 @@ public class SistemaLista {
             System.out.println(listaAuspiciantes.get(i).toString()+"\n");
         }
     }
+
+
+    //Metodos para la seleccion de cosas
+
+    //Seleccionar una ciudad
+
+    public static Ciudad seleccionarCiudad(){
+        int i = 0;
+        System.out.println("Seleccione una de las ciudades: ");
+        for(Ciudad ciu: listaCiudades){
+            System.out.println((i+=1)+". "+ciu.getNombre());
+        }
+        System.out.print(">>> ");
+        int indice = sc.nextInt()-1;
+        sc.nextLine();
+        while(indice<0||indice>=listaCiudades.size()){
+            System.out.println("No se ha encontrado la ciudad seleccionada, intente nuevamente: ");
+            System.out.println("Seleccione una de las ciudades: ");
+            System.out.print(">>> ");
+            indice = sc.nextInt()-1;
+            sc.nextLine();
+        }
+        //Se obtiene la ciudad en ese indice
+        System.out.println("Se ha seleccionado la ciudad exitosamente");
+        return listaCiudades.get(indice);
+    }
+
+    //Seleccionar un auspiciante
+    public static Auspiciante seleccionarAuspiciante(){
+        int i = 0;
+        System.out.println("Seleccione uno de los auspiciantes disponibles");
+        for(Auspiciante aus:listaAuspiciantes){
+            System.out.println((i+=1)+". "+aus.getNombre());
+        }
+        System.out.print(">>> ");
+        int indice = sc.nextInt()-1;
+        sc.nextLine();
+        while(indice<0||indice>=listaAuspiciantes.size()){
+            System.out.println("No se ha encontrado el auspiciante seleccionado, intente nuevamente: ");
+            System.out.println("Seleccione uno de los auspiciantes: ");
+            System.out.print(">>> ");
+            indice = sc.nextInt()-1;
+            sc.nextLine();
+        }
+        System.out.println("Se ha seleccionado al auspiciante de manera exitosa");
+        return listaAuspiciantes.get(indice);
+    }
+
+
     
 
 
@@ -569,6 +611,38 @@ public class SistemaLista {
         } 
 
         return builder.toString();
+    }
+
+
+    //Metodo para crear una fecha
+    public static LocalDate crearFecha(){
+        System.out.println("Ingrese el dia para la creacion de su fecha: ");
+        System.out.print(">>> ");
+        int dia = sc.nextInt();
+        sc.nextLine();
+        
+
+        //Pidiendo el mes
+        System.out.println("Ingrese el numero del mes para la creacion de su fecha: ");
+        System.out.print(">>> ");
+        int mes = sc.nextInt();
+        sc.nextLine();
+        
+
+        //Pidiendo el anio
+        System.out.println("Ingrese el anio para la creacion de su fecha: ");
+        System.out.print(">>> ");
+        int anio = sc.nextInt();
+
+        //Se construye la fecha
+        LocalDate fecha = LocalDate.of(anio, mes, dia);
+        return fecha;
+    }
+
+    //Crear fecha solo pasando parametros
+    public static LocalDate crearFechaConParametros(int dia, int mes, int anio){
+        LocalDate fecha = LocalDate.of(anio, mes, dia);
+        return fecha;
     }
     
 }
