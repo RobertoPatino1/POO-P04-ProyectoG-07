@@ -52,7 +52,7 @@ public class DuenioMascota extends Persona{
 
     //Metodo toString
     public String toString(){
-        return super.toString()+"Apellidos: "+apellidos+"|"+"Cedula: "+cedula; 
+        return super.toString()+"Apellidos: "+apellidos+"|"+"Cedula:"+cedula; 
     }
     
 }
