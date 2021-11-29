@@ -204,11 +204,11 @@ public class Main {
         //creacion de 3 auspiciantes
         //Se crean y registran los auspiciantes en la lista
        
-        Auspiciante auspiciante1= new Auspiciante("Auspiciante 1", "direccion 1", "telefono1", ciudad1, "email1@", "webPage1.com");
+        Auspiciante auspiciante1= new Auspiciante("Netlife", "Alfonoso Mendosa Av16", "3920000", ciudad1, "info@netlife.net.ec", "https://www.netlife.ec/");
         SistemaLista.registrarAuspiciante(auspiciante1);
-        Auspiciante auspiciante2= new Auspiciante("Auspiciante 2", "direccion 2", "telefono1", ciudad2, "email2@", "webPage2.com");
+        Auspiciante auspiciante2= new Auspiciante("Banco Pacifico", "Av 25 de Julio", "2085000", ciudad2, "mcarillo@seruvi.com", "webadminpac@pacifico.fin.ec.");
         SistemaLista.registrarAuspiciante(auspiciante2);
-        Auspiciante auspiciante3= new Auspiciante("Auspiciante 3", "direccion 3", "telefono1", ciudad3, "email3@", "webPage3.com");
+        Auspiciante auspiciante3= new Auspiciante("Coca cola", "Av Juan tanca Marengo", "42598910", ciudad3, "gener@cocacola.com", "https://www.coca-cola.com.co/");
         SistemaLista.registrarAuspiciante(auspiciante3);
         }
         
