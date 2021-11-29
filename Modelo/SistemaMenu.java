@@ -11,6 +11,7 @@ public class SistemaMenu {
         System.out.println("2. Administrar Dueños");
         System.out.println("3. Administrar Mascotas");
         System.out.println("4. Salir");
+        System.out.print(">>> ");
         String opcionString = sc.nextLine();
         int opcion = Integer.valueOf(opcionString);
         return opcion;
@@ -22,6 +23,7 @@ public class SistemaMenu {
         System.out.println("1. Crear concurso");
         System.out.println("2. Inscribir participante");
         System.out.println("3. Regresar al menú principal");
+        System.out.print(">>> ");
         String opcionString = sc.nextLine();
         int opcion = Integer.valueOf(opcionString);
         return opcion;
@@ -32,6 +34,7 @@ public class SistemaMenu {
         System.out.println("4. Crear dueño");
         System.out.println("5. Editar dueño");
         System.out.println("6. Regresar al menú principal");
+        System.out.print(">>> ");
         String opcionString = sc.nextLine();
         int opcion = Integer.valueOf(opcionString);
         return opcion;      
@@ -42,6 +45,7 @@ public class SistemaMenu {
         System.out.println("7. Crear mascota");
         System.out.println("8. Eliminar mascota");
         System.out.println("9. Regresar al menú principal");
+        System.out.print(">>> ");
         String opcionString = sc.nextLine();
         int opcion = Integer.valueOf(opcionString);
         return opcion;  
@@ -59,6 +63,7 @@ public class SistemaMenu {
         System.out.println("6. Actualizar email");
         System.out.println("7. Finalizar edicion");
 
+        System.out.print(">>> ");
         String opcionString = sc.nextLine();
         int opcion = Integer.valueOf(opcionString);
         return opcion;
