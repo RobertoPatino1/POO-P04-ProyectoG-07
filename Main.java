@@ -1,15 +1,9 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
-import Modelo.Auspiciante;
-import Modelo.Ciudad;
-import Modelo.Concurso;
-import Modelo.DuenioMascota;
-import Modelo.Mascota;
-import Modelo.Premio;
-import Modelo.SistemaLista;
-import Modelo.TipoAnimal;
-import Modelo.TipoAnimalesConcurso;
-import Modelo.SistemaMenu;
+
+import Modelo.*;
+
 public class Main {
     public static void main(String[] args) {
     
@@ -28,13 +22,15 @@ public class Main {
             seleccion = SistemaMenu.menuPrincipal();
             switch (seleccion){
                 case 1: //Administrar concursos
-                    System.out.println("Se muestra una lista con todos los concursos existentes");
+                    System.out.println("Se muestra una lista con todos los concursos existentes \n");
                     SistemaLista.visualizarListaConcursos(); //Se muestra la lista de concursos
                     seleccion1 = SistemaMenu.menuConcursos();
                     if (seleccion1 == 1){
                         //Creacion de un concurso
                         System.out.println("---Creacion de concurso---");
-                        SistemaLista.crearConcurso();
+                        Concurso concurso = SistemaLista.crearConcurso();
+                        //Se alacena al concurso en la lista de concursos
+                        SistemaLista.registrarConcurso(concurso);
                         break;
 
                     }else if(seleccion1 == 2){
@@ -52,7 +48,7 @@ public class Main {
 
                 case 2: //Administrar Duenios
                     //Se muestra por pantalla la lista de duenios
-                    System.out.println("Se muestra una lista con todos los duenios existentes");
+                    System.out.println("Se muestra una lista con todos los duenios existentes \n");
                     SistemaLista.visualizarListaDuenios();
                     seleccion2 = SistemaMenu.menuDuenios();
                     if (seleccion2 == 4){
@@ -77,7 +73,7 @@ public class Main {
 
                 case 3:
                     //Se muestra la lista de mascotas existentes
-                    System.out.println("Se muestra una lista con todas las mascotas existentes");
+                    System.out.println("Se muestra una lista con todas las mascotas existentes \n");
                     SistemaLista.visualizarListaMascotas();
                     seleccion3 = SistemaMenu.menuMascotas();
                     if (seleccion3 == 7){
@@ -128,21 +124,6 @@ public class Main {
         ● Las ciudades Guayaquil, Quito y Cuenca
         ● 3 auspiciantes
         */
-
-        //concurso vigente
-       
-        Ciudad ciudadv = new Ciudad("Guayaquil","Guayas");
-        Auspiciante auspiciantev = new Auspiciante("Raul.Salazar","Base.naval.sur.Av25","0991279217",ciudadv,"rausala@espol.edu.ec","http.a");
-        Premio premio1 = new Premio("Comida para perro 1 año", "Comida para perro 1/2 año", "Comida para perro 1/4 año",true, auspiciantev);
-        Concurso concursoVigente = new Concurso("Orejas Largas","30/11/2021","13:24","28/11/2021","10/12/2021",ciudadv,"ParqueSamanes",premio1,auspiciantev,TipoAnimalesConcurso.PERROS);
-        SistemaLista.registrarConcurso(concursoVigente);
-
-        //Concurso pasado
-        Concurso concursoPasado = new Concurso("Patitas felices", "28/11/2020", "16:00", "28/10/2020", "25/11/2020", ciudadv, "Parque centenario", premio1, auspiciantev, TipoAnimalesConcurso.TODOS);
-        //Se cierra el concurso y se lo finaliza
-        concursoPasado.cerrarInscripcionesConcurso();
-        concursoPasado.finalizarConcurso();
-        SistemaLista.registrarConcurso(concursoPasado);
         //creaccion de 3 ciudades
         
         Ciudad ciudad1 = new Ciudad("Guayaquil","Guayas");
@@ -210,6 +191,39 @@ public class Main {
         SistemaLista.registrarAuspiciante(auspiciante2);
         Auspiciante auspiciante3= new Auspiciante("Auspiciante 3", "direccion 3", "telefono1", ciudad3, "email3@", "webPage3.com");
         SistemaLista.registrarAuspiciante(auspiciante3);
+
+
+
+
+        //Concurso vigente        
+        Auspiciante auspiciantev = new Auspiciante("Raul.Salazar","Base.naval.sur.Av25","0991279217",ciudad1,"rausala@espol.edu.ec","http.a");
+        Premio premio1 = new Premio("Comida para perro 1 año", "Comida para perro 1/2 año", "Comida para perro 1/4 año",true, auspiciantev);
+        Concurso concursoVigente = new Concurso("Orejas Largas","30/11/2021","13:24","28/11/2021","10/12/2021",ciudad1,"ParqueSamanes",premio1,auspiciantev,TipoAnimalesConcurso.PERROS);
+        SistemaLista.registrarConcurso(concursoVigente);
+
+        //Concurso pasado
+        Concurso concursoPasado = new Concurso("Patitas felices", "28/11/2020", "16:00", "28/10/2020", "25/11/2020", ciudad1, "Parque centenario", premio1, auspiciantev, TipoAnimalesConcurso.TODOS);
+        //Se cierra el concurso y se lo finaliza
+
+        
+        //Se agregan los participantes al concurso pasado
+        concursoPasado.inscribirParticipantes(mascota1);
+        concursoPasado.inscribirParticipantes(mascota2);
+        concursoPasado.inscribirParticipantes(mascota3);
+        concursoPasado.inscribirParticipantes(mascota4);
+        concursoPasado.inscribirParticipantes(mascota5);
+        concursoPasado.cerrarInscripcionesConcurso();
+        
+        SistemaLista.registrarConcurso(concursoPasado);
+
+        //Se escogen a las mascotas ganadores
+        ArrayList<Mascota> ganadores = new ArrayList<>();
+        ganadores.add(mascota1);
+        ganadores.add(mascota2);
+        ganadores.add(mascota3);
+        //Se finaliza el concurso
+        concursoPasado.finalizarConcurso();
+
         }
         
     }
