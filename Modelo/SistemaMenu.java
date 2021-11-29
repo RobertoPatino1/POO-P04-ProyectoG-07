@@ -4,6 +4,7 @@ public class SistemaMenu {
     static Scanner sc = new Scanner(System.in); //Debe ser estatico para poder ser usado en los metodos
 
 
+    //Menu principal del proyecto
     public static int menuPrincipal(){
         System.out.println("---Menu principal---");
         System.out.println("Selecciona una opcion");
@@ -17,7 +18,7 @@ public class SistemaMenu {
         return opcion;
     }
 
-    //Opciones principales
+    //Opciones principales del proyecto
     public static int menuConcursos(){
         System.out.println("---Menu de concursos---");
         System.out.println("1. Crear concurso");
@@ -29,6 +30,7 @@ public class SistemaMenu {
         return opcion;
     }
 
+    //Opciones del apartado dueños
     public static int menuDuenios(){
         System.out.println("---Menu de duenios---");
         System.out.println("4. Crear dueño");
@@ -40,6 +42,7 @@ public class SistemaMenu {
         return opcion;      
     }
 
+    //Opciones del apartado Mascotas
     public static int menuMascotas(){
         System.out.println("---Menu de mascotas---");
         System.out.println("7. Crear mascota");
@@ -51,7 +54,7 @@ public class SistemaMenu {
         return opcion;  
     }
 
-    //Menu que se usa para editar al duenio de una mascota
+    //Menu que se usa para editar al dueño de una mascota
     public static int menuEditarDuenio(){
         System.out.println(">>>Menu de edicion para duenios<<<");
         System.out.println("Selecciona una opcion");

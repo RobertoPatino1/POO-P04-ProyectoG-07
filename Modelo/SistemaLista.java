@@ -466,17 +466,6 @@ public class SistemaLista {
         
         return auspiciante;
     }
-
-
-
-
-
-
-
-
-
-
-
     
     //------Métodos de Registro------\\
     public static void registrarConcurso(Concurso c){

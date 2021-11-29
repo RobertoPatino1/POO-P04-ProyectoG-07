@@ -6,11 +6,8 @@ public class Persona{
     private Ciudad ciudad;
     private String email;
     
-
-    //Constructor
-
+    //Constructor que inicializa todos los atributos
     public Persona(String nombre, String direccion, String telefono, Ciudad ciudad, String email){
-        //Inicializa los atributos
         this.nombre = nombre;
         this.direccion = direccion;
         this.telefono = telefono;

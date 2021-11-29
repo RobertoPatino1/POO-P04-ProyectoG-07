@@ -25,9 +25,8 @@ public class Concurso {
     private ArrayList<Mascota> ganadores = new ArrayList<>();
     
 
+    //Constructor que inicializa todos los atributos
     public Concurso(String nombre, LocalDate fechaEvento, String horaEvento, LocalDate fechaInicioInscripcion, LocalDate fechaCierreInscripcion, Ciudad ciudad, String lugar, Premio premio, Auspiciante auspiciante, TipoAnimalesConcurso dirigidoA){
-
-        
         this.nombre= nombre;
         this.fechaEvento= fechaEvento;
         this.horaEvento= horaEvento;
@@ -48,10 +47,12 @@ public class Concurso {
     }
 
 
+    //Metodo para cerrar las inscripciones
     public void cerrarInscripcionesConcurso(){
         estaAbierto = false;
     }
 
+    //Metodo para finalizar un concurso
     public void finalizarConcurso(){
         concursoFinalizado = true;
     }
@@ -69,6 +70,7 @@ public class Concurso {
             System.out.println("El concurso se encuentra cerrado.");
     }
 
+    //Metodo para consultar a los ganadores
     public void consultarGanadores(){
         if(concursoFinalizado){
             System.out.println("Se muestra la lista de ganadores: ");

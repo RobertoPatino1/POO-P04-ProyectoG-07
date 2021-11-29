@@ -13,7 +13,7 @@ public class Mascota {
     private boolean disponibleParaFuturasInscripciones;
     private boolean haParticipado;
 
-    //Constructor que inicializa los atributos
+    //Constructor que inicializa todos los atributos
     public Mascota(String nombre, TipoAnimal tipoMascota, String raza, LocalDate fechaDeNacimiento, String foto, DuenioMascota duenio, String id){
         this.nombre = nombre;
         this.tipoMascota = tipoMascota;
@@ -55,10 +55,6 @@ public class Mascota {
     public void setParticipacion(boolean part){
         this.haParticipado = part;
     }
-
-
-
-
 
     //Metodo equals:
     //-----Este metodo sera usado para buscar una mascota en la lista de mascotas con el .contains()-----

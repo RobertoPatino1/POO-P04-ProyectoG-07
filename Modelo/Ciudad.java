@@ -4,6 +4,7 @@ public class Ciudad {
     private String nombre;
     private String provincia;
     
+    //Constructor que inicializa todos los atributos
     public Ciudad(String nombre, String provincia){
         this.nombre = nombre;
         this.provincia = provincia;

@@ -5,10 +5,9 @@ public class DuenioMascota extends Persona{
     private String cedula;
     private String apellidos;
 
-    //Constructor
+    //Constructor que inicializa todos los atributos
     public DuenioMascota(String nombre, String direccion, String telefono, Ciudad ciudad, String email, String cedula, String apellidos){
-        //Inicializa los atributos
-        super(nombre, direccion, telefono, ciudad, email); //Llamando al constructor de la clase padre Persona
+        super(nombre, direccion, telefono, ciudad, email); //Llamando las variables de la clase padre Persona
         this.cedula = cedula;
         this.apellidos = apellidos;
     }
@@ -35,8 +34,6 @@ public class DuenioMascota extends Persona{
         this.apellidos=apellidos;
     }
     
-
-
     //Este metodo sera usado por el contains para buscar en la lista el elemento que coincida con la cedula ingresada
     @Override
     public boolean equals(Object o){
@@ -53,6 +50,7 @@ public class DuenioMascota extends Persona{
         
     }
 
+    //Metodo toString
     public String toString(){
         return super.toString()+"Apellidos: "+apellidos+"|"+"Cedula: "+cedula; 
     }
