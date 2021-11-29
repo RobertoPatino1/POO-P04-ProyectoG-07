@@ -123,7 +123,7 @@ public class Concurso {
             return "Nombre: "+nombre+"|"+"Fecha: "+fechaEvento+"|"+"Hora: "+horaEvento+"|"+"Lugar: "+lugar+"|"+"Dirigido a: "+dirigidoA+"|"+"Estado: Finalizado";
 
         }
-        return "Nombre: "+nombre+"|"+"Fecha: "+fechaEvento+"|"+"Hora: "+horaEvento+"|"+"Lugar: "+lugar+"|"+"Dirigido a: "+dirigidoA+"Fecha de inicio de inscripciones: "+fechaInicioInscripcion+"|"+"Fecha de cierre de inscripciones: "+fechaCierreInscripcion+"|"+"Estado: Abierto";
+        return "Nombre: "+nombre+"|"+"Fecha: "+fechaEvento+"|"+"Hora: "+horaEvento+"|"+"Lugar: "+lugar+"|"+"Dirigido a: "+dirigidoA+"|"+"Fecha de inicio de inscripciones: "+fechaInicioInscripcion+"|"+"Fecha de cierre de inscripciones: "+fechaCierreInscripcion+"|"+"Estado: Abierto";
     }
 
 
