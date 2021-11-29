@@ -15,15 +15,17 @@ public class Concurso {
     private TipoAnimalesConcurso dirigidoA;
     private boolean estaAbierto; //True si el concurso esta abierto/ false si esta cerrado
     private boolean concursoFinalizado; //True si el concurso ha terminado
+  
 
     //Lista de mascotas inscritas
-    private ArrayList<Mascota> mascotasInscritas;
+    private ArrayList<Mascota> mascotasInscritas = new ArrayList<>();
 
     //Lista de ganadores
-    private ArrayList<Mascota> ganadores;
+    private ArrayList<Mascota> ganadores = new ArrayList<>();
     
 
     public Concurso(String nombre, String fechaEvento, String horaEvento, String fechaInicioInscripcion, String fechaCierreInscripcion, Ciudad ciudad, String lugar, Premio premio, Auspiciante auspiciante, TipoAnimalesConcurso dirigidoA){
+
         
         this.nombre= nombre;
         this.fechaEvento= fechaEvento;
@@ -57,6 +59,27 @@ public class Concurso {
     public void seleccionarGanadores(ArrayList<Mascota> ganadores){
         this.ganadores = ganadores;
     }
+
+    //Metodo para inscribir participantes en el concurso:
+    public void inscribirParticipantes(Mascota m){
+        if(estaAbierto)
+            mascotasInscritas.add(m);
+        else
+            System.out.println("El concurso se encuentra cerrado.");
+    }
+
+    public void consultarGanadores(){
+        if(concursoFinalizado){
+            System.out.println("Se muestra la lista de ganadores: ");
+            for(Mascota mascota:ganadores){
+                System.out.println(mascota.getNombre());
+            }
+        }else{
+            System.out.println("El concurso aun no ha terminado");
+        }
+    }
+
+    
 
 
 
@@ -93,6 +116,10 @@ public class Concurso {
 
     //Metodo toString
     public String toString(){
+        if(concursoFinalizado){
+            return "Nombre: "+nombre+"|"+"Fecha: "+fechaEvento+"|"+"Hora: "+horaEvento+"|"+"Lugar: "+lugar+"|"+"Dirigido a: "+dirigidoA+"|"+"Estado: Finalizado";
+
+        }
         return "Nombre: "+nombre+"|"+"Fecha: "+fechaEvento+"|"+"Hora: "+horaEvento+"|"+"Lugar: "+lugar+"|"+"Dirigido a: "+dirigidoA;
     }
 

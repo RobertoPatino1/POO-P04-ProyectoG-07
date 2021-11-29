@@ -67,7 +67,7 @@ public class Mascota {
     //toString()
     //Sera usado al momento de mostrar las listas de mascotas por pantalla
     public String toString(){
-        return "Nombre: "+nombre+"|"+"Tipo de mascota: "+tipoMascota+"|"+"Dueño: "+duenio+"|"+"ID: "+id;
+        return "Nombre: "+nombre+"|"+"Tipo de mascota: "+tipoMascota+"|||"+"Dueño--> "+duenio+"|"+"ID: "+id;
     }
     
 }
