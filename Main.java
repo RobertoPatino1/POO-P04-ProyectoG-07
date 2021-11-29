@@ -12,24 +12,8 @@ import Modelo.TipoAnimalesConcurso;
 import Modelo.SistemaMenu;
 public class Main {
     public static void main(String[] args) {
-        
-        /*
-
-
-
-
-
-
-        Objetos creados previo a la ejecucion del programa
-
-
-
-
-
-
-
-        */
-        //Main.crearObjetos(); // IMPORTANTES COMPROBAR SI ESTO ESTA BIEN 
+    
+        crearObjetos(); //Se crean todos los objetos con el metodo
 
         Scanner sc = new Scanner(System.in);
         int seleccion;
@@ -37,24 +21,28 @@ public class Main {
         int seleccion2;
         int seleccion3;
 
+      
+
+
         do{
             seleccion = SistemaMenu.menuPrincipal();
             switch (seleccion){
                 case 1: //Administrar concursos
+                    System.out.println("Se muestra una lista con todos los concursos existentes");
                     SistemaLista.visualizarListaConcursos(); //Se muestra la lista de concursos
                     seleccion1 = SistemaMenu.menuConcursos();
-                    if (seleccion == 1){
+                    if (seleccion1 == 1){
                         //Creacion de un concurso
                         System.out.println("---Creacion de concurso---");
                         SistemaLista.crearConcurso();
                         break;
 
-                    }else if(seleccion == 2){
+                    }else if(seleccion1 == 2){
                         //Inscripcion de participante
                         System.out.println("---Inscripcion de participante---");
                         SistemaLista.inscribirParticipantes();
                         break;
-                    }else if (seleccion == 3){
+                    }else if (seleccion1 == 3){
                         //Regresar al menu principal
                         System.out.println("---Regresar al menu principal---");
                         break;
@@ -64,6 +52,7 @@ public class Main {
 
                 case 2: //Administrar Duenios
                     //Se muestra por pantalla la lista de duenios
+                    System.out.println("Se muestra una lista con todos los duenios existentes");
                     SistemaLista.visualizarListaDuenios();
                     seleccion2 = SistemaMenu.menuDuenios();
                     if (seleccion2 == 4){
@@ -88,6 +77,7 @@ public class Main {
 
                 case 3:
                     //Se muestra la lista de mascotas existentes
+                    System.out.println("Se muestra una lista con todas las mascotas existentes");
                     SistemaLista.visualizarListaMascotas();
                     seleccion3 = SistemaMenu.menuMascotas();
                     if (seleccion3 == 7){
@@ -139,28 +129,33 @@ public class Main {
         ● 3 auspiciantes
         */
 
-        //Concurso pasado
-
         //concurso vigente
-        System.out.println("---Creacion de Concurso vigente---");
+       
         Ciudad ciudadv = new Ciudad("Guayaquil","Guayas");
         Auspiciante auspiciantev = new Auspiciante("Raul.Salazar","Base.naval.sur.Av25","0991279217",ciudadv,"rausala@espol.edu.ec","http.a");
         Premio premio1 = new Premio("Comida para perro 1 año", "Comida para perro 1/2 año", "Comida para perro 1/4 año",true, auspiciantev);
-        Concurso concursoVigente = new Concurso("OrejasLargas","30/11/2021","13:24","28/11/2021","10/12/2021",ciudadv,"ParqueSamanes",premio1,auspiciantev,TipoAnimalesConcurso.PERROS);
+        Concurso concursoVigente = new Concurso("Orejas Largas","30/11/2021","13:24","28/11/2021","10/12/2021",ciudadv,"ParqueSamanes",premio1,auspiciantev,TipoAnimalesConcurso.PERROS);
         SistemaLista.registrarConcurso(concursoVigente);
 
+        //Concurso pasado
+        Concurso concursoPasado = new Concurso("Patitas felices", "28/11/2020", "16:00", "28/10/2020", "25/11/2020", ciudadv, "Parque centenario", premio1, auspiciantev, TipoAnimalesConcurso.TODOS);
+        //Se cierra el concurso y se lo finaliza
+        concursoPasado.cerrarInscripcionesConcurso();
+        concursoPasado.finalizarConcurso();
+        SistemaLista.registrarConcurso(concursoPasado);
         //creaccion de 3 ciudades
-        System.out.println("---Ingreso de ciudades---");
+        
         Ciudad ciudad1 = new Ciudad("Guayaquil","Guayas");
-        SistemaLista.registrarCiudad(ciudad1);  
+        SistemaLista.registrarCiudad(ciudad1); //Se registran las ciudades en las listas
         Ciudad ciudad2 = new Ciudad("Quito","Pichincha");
-        SistemaLista.registrarCiudad(ciudad2); 
+        SistemaLista.registrarCiudad(ciudad2); //Se registran en la lista
         Ciudad ciudad3 = new Ciudad("Cuenca","Azuay");
-        SistemaLista.registrarCiudad(ciudad3); 
+        SistemaLista.registrarCiudad(ciudad3); //Se registran en la lista
 
 
         //creacion de 10 dueños 
-        System.out.println("---Ingreso de Dueños---");
+       
+        //Se crean y registran los 10 duenios
         DuenioMascota duenio1 = new DuenioMascota("Mario", "14 y Francisco segura", "3087207", ciudad1 , "mdas2508@gmail.com", "0951120526", "Alava");
         SistemaLista.registrarDuenioMascota(duenio1);
         DuenioMascota duenio2 = new DuenioMascota("Josue", "15 y Francisco segura", "3087208", ciudad1 , "correo0001@gmail.com", "0951120527", "Bajaña");
@@ -183,7 +178,8 @@ public class Main {
         SistemaLista.registrarDuenioMascota(duenio10);
 
         //creacion de 10 mascotas 
-        System.out.println("---Ingreso de Mascotas---");
+        
+        //Se crean y registran las 10 mascotas
         Mascota mascota1 = new Mascota("Pinky",TipoAnimal.PERRO,"Salchica","24/08/2005","http1",duenio1,"2005");
         SistemaLista.registrarMascotas(mascota1);
         Mascota mascota2 = new Mascota("Balto",TipoAnimal.PERRO,"Huzky","14/03/1933","http2",duenio2,"1933");
@@ -206,15 +202,15 @@ public class Main {
         SistemaLista.registrarMascotas(mascota10);
 
         //creacion de 3 auspiciantes
-        System.out.println("---Ingreso de Auspiciantes---");
-        Auspiciante auspiciante1= new Auspiciante("Auspiciante 1", "direccion 1", "telefono1", ciudad1, "email1@", "webPage1.com")
+        //Se crean y registran los auspiciantes en la lista
+       
+        Auspiciante auspiciante1= new Auspiciante("Auspiciante 1", "direccion 1", "telefono1", ciudad1, "email1@", "webPage1.com");
         SistemaLista.registrarAuspiciante(auspiciante1);
-        Auspiciante auspiciante2= new Auspiciante("Auspiciante 2", "direccion 2", "telefono1", ciudad2, "email2@", "webPage2.com")
+        Auspiciante auspiciante2= new Auspiciante("Auspiciante 2", "direccion 2", "telefono1", ciudad2, "email2@", "webPage2.com");
         SistemaLista.registrarAuspiciante(auspiciante2);
-        Auspiciante auspiciante3= new Auspiciante("Auspiciante 3", "direccion 3", "telefono1", ciudad3, "email3@", "webPage3.com")
+        Auspiciante auspiciante3= new Auspiciante("Auspiciante 3", "direccion 3", "telefono1", ciudad3, "email3@", "webPage3.com");
         SistemaLista.registrarAuspiciante(auspiciante3);
         }
         
     }
     
-}
