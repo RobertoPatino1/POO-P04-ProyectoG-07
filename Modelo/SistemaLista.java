@@ -440,23 +440,33 @@ public class SistemaLista {
 
     //------Metodos de Visualizacion ------\\
     public static void visualizarListaConcursos(){
-        System.out.println(listaConcursos);
+        for(int i = 0; i < listaConcursos.size(); i++){
+            System.out.println(listaConcursos.get(i).toString()+"\n");
+        }
     }
 
     public static void visualizarListaMascotas(){
-        System.out.println(listaMascotas);
+        for(int i = 0; i < listaMascotas.size(); i++){
+            System.out.println(listaMascotas.get(i).toString()+"\n");
+        }
     }
 
     public static void visualizarListaDuenios(){
-        System.out.println(listaDuenios);
+        for(int i = 0; i < listaDuenios.size(); i++){
+            System.out.println(listaDuenios.get(i).toString()+"\n");
+        }
     }
 
     public static void visualizarListaCiudades(){
-        System.out.println(listaCiudades);
+        for(int i = 0; i < listaCiudades.size(); i++){
+            System.out.println(listaCiudades.get(i).toString()+"\n");
+        }
     }
 
     public static void visualizarListaAuspiciantes(){
-        System.out.println(listaAuspiciantes);
+        for(int i = 0; i < listaAuspiciantes.size(); i++){
+            System.out.println(listaAuspiciantes.get(i).toString()+"\n");
+        }
     }
     
 
