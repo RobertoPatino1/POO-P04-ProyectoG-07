@@ -1,4 +1,4 @@
-package Modelo;
+package Modelo.SistemaClases;
 import java.util.Scanner;
 public class SistemaMenu {
     static Scanner sc = new Scanner(System.in); //Debe ser estatico para poder ser usado en los metodos
