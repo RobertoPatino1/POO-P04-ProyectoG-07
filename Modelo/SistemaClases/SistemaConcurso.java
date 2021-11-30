@@ -6,63 +6,63 @@ import java.util.Scanner;
 import Modelo.*;
 public class SistemaConcurso {
     static Scanner sc = new Scanner(System.in);
-        //Para concurso
-        public static Concurso crearConcurso(){
-            System.out.println("Ingrese el nombre del concurso a crear: ");
-            System.out.print(">>> ");
-            String nombre = sc.nextLine();
-            System.out.println("--Datos para la fecha del concurso--");
-            LocalDate fechaConcurso = SistemaLista.crearFecha();
-            System.out.println("Ingrese la hora del concurso: ");
-            System.out.print(">>> ");
-            String hora = sc.nextLine();
-    
-            System.out.println("--Datos para la fecha de inicio de las inscripciones--");
-            LocalDate fechaInicioInscripciones = SistemaLista.crearFecha();
-            System.out.println("--Datos para la fecha de cierre para las inscripciones--");
-            LocalDate fechaCierreInscripciones = SistemaLista.crearFecha();
-            
-            
-            Ciudad ciudad = SistemaLista.seleccionarCiudad();
-            
-            System.out.println("Ingrese el lugar donde se llevará a cabo el concurso: ");
-            System.out.print(">>> ");
-            String lugar = sc.nextLine();
-    
-            //Se escoge al auspiciante
-            Auspiciante auspiciante = SistemaLista.seleccionarAuspiciante();
-    
-            //Se piden datos para el premio
-            Premio premio = SistemaPremio.crearPremios();
-            //Se lo registra en la lista
-            SistemaLista.listaPremios.add(premio);
+    //Para concurso
+    public static Concurso crearConcurso(){
+        System.out.println("Ingrese el nombre del concurso a crear: ");
+        System.out.print(">>> ");
+        String nombre = sc.nextLine();
+        System.out.println("--Datos para la fecha del concurso--");
+        LocalDate fechaConcurso = SistemaLista.crearFecha();
+        System.out.println("Ingrese la hora del concurso: ");
+        System.out.print(">>> ");
+        String hora = sc.nextLine();
+
+        System.out.println("--Datos para la fecha de inicio de las inscripciones--");
+        LocalDate fechaInicioInscripciones = SistemaLista.crearFecha();
+        System.out.println("--Datos para la fecha de cierre para las inscripciones--");
+        LocalDate fechaCierreInscripciones = SistemaLista.crearFecha();
+        
+        
+        Ciudad ciudad = SistemaLista.seleccionarCiudad();
+        
+        System.out.println("Ingrese el lugar donde se llevará a cabo el concurso: ");
+        System.out.print(">>> ");
+        String lugar = sc.nextLine();
+
+        //Se escoge al auspiciante
+        Auspiciante auspiciante = SistemaLista.seleccionarAuspiciante();
+
+        //Se piden datos para el premio
+        Premio premio = SistemaPremio.crearPremios();
+        //Se lo registra en la lista
+        SistemaLista.listaPremios.add(premio);
+        System.out.println("Para quien esta dirigido el concurso: ");
+        TipoAnimalesConcurso tipoAnimalesConcurso = null; //Se coloca la variable como null para empezar
+        System.out.println("1. Perros \n"+"2. Gatos \n"+"3. Todos");
+        System.out.print(">>> ");
+        int seleccion = sc.nextInt();
+        sc.nextLine();
+        if(seleccion==1){
+            tipoAnimalesConcurso = TipoAnimalesConcurso.PERROS;
+        }else if(seleccion==2){
+            tipoAnimalesConcurso = TipoAnimalesConcurso.GATOS;
+        }else if(seleccion==3){
+            tipoAnimalesConcurso = TipoAnimalesConcurso.TODOS;
+        }else{
+            while(seleccion!=1&&seleccion!=2&&seleccion!=3)
+            System.out.println("Respuesta no valida, seleccione nuevamente: ");
             System.out.println("Para quien esta dirigido el concurso: ");
-            TipoAnimalesConcurso tipoAnimalesConcurso = null; //Se coloca la variable como null para empezar
             System.out.println("1. Perros \n"+"2. Gatos \n"+"3. Todos");
             System.out.print(">>> ");
-            int seleccion = sc.nextInt();
+            seleccion = sc.nextInt();
             sc.nextLine();
-            if(seleccion==1){
-                tipoAnimalesConcurso = TipoAnimalesConcurso.PERROS;
-            }else if(seleccion==2){
-                tipoAnimalesConcurso = TipoAnimalesConcurso.GATOS;
-            }else if(seleccion==3){
-                tipoAnimalesConcurso = TipoAnimalesConcurso.TODOS;
-            }else{
-                while(seleccion!=1&&seleccion!=2&&seleccion!=3)
-                System.out.println("Respuesta no valida, seleccione nuevamente: ");
-                System.out.println("Para quien esta dirigido el concurso: ");
-                System.out.println("1. Perros \n"+"2. Gatos \n"+"3. Todos");
-                System.out.print(">>> ");
-                seleccion = sc.nextInt();
-                sc.nextLine();
-            }
-    
-            //Se crea el concurso: 
-            System.out.println("Se ha creado el concurso exitosamente");
-            Concurso concurso = new Concurso(nombre, fechaConcurso, hora, fechaInicioInscripciones, fechaCierreInscripciones, ciudad, lugar, premio, auspiciante, tipoAnimalesConcurso);
-            return concurso;
         }
+
+        //Se crea el concurso: 
+        System.out.println("Se ha creado el concurso exitosamente");
+        Concurso concurso = new Concurso(nombre, fechaConcurso, hora, fechaInicioInscripciones, fechaCierreInscripciones, ciudad, lugar, premio, auspiciante, tipoAnimalesConcurso);
+        return concurso;
+    }
 
             
     public static void inscribirParticipantes(){
