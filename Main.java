@@ -1,5 +1,5 @@
 
-import Modelo.SistemaClases.*;
+import SistemaClases.*;
 
 public class Main {
     public static void main(String[] args) {

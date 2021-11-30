@@ -1,4 +1,4 @@
-package Modelo;
+package modelo;
 
 public class Auspiciante extends Persona{
     private String webPage;
