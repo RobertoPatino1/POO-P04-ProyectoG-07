@@ -79,7 +79,7 @@ public class SistemaConcurso {
 
         //Se solicita ingresar el codigo del concurso y el id de la mascota
         //Para esto se debe verificar que la mascota este en la lista de mascotas
-        System.out.println("Ingrese el numero del concurso en el que se va a registrar al participante"+" (0-"+SistemaLista.listaConcursosAbiertos.size()+"): ");
+        System.out.println("Ingrese el numero del concurso en el que se va a registrar al participante: ");
 
 
         System.out.print(">>> ");
