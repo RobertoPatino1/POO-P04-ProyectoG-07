@@ -51,20 +51,8 @@ public class SistemaMascota {
         String foto = sc.nextLine();
 
         System.out.println("Seleccionar el numero del duenio de la mascota: ");
-        int i = 0;
-        for(DuenioMascota duenio: SistemaLista.listaDuenios){
-            System.out.println((i+=1)+"."+" "+duenio);
-        }
-        //El usuario escoge al duenio de la mascota
-        System.out.print(">>> ");
-        int eleccionDuenio = sc.nextInt();
-        sc.nextLine();
-        //Se resta 1 al numero seleccionado para acceder directamente a su indice en la lista
-        int indiceDuenioSeleccionado = eleccionDuenio-1;
-
-        //Se obtiene al duenio de la mascota
-        DuenioMascota duenio = SistemaLista.listaDuenios.get(indiceDuenioSeleccionado);
-
+        
+        DuenioMascota duenio = SistemaLista.seleccionarDuenio();
         //Se crea el id de la mascota y se le notifica al usuario
         
         String id = crearIdMascota(4); //Se usa el metodo creado abajo

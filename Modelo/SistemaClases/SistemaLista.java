@@ -130,6 +130,27 @@ public class SistemaLista {
         return listaAuspiciantes.get(indice);
     }
 
+    public static DuenioMascota seleccionarDuenio(){
+        int i = 0;
+        System.out.println("Seleccione el dueño de la mascota a crear");
+        for(DuenioMascota due:listaDuenios){
+            System.out.println((i+=1)+". "+due.getNombre()+" "+due.getApellidos());
+        }
+        System.out.print(">>> ");
+        int indice = sc.nextInt()-1;
+        sc.nextLine();
+        while(indice<0||indice>=listaAuspiciantes.size()){
+            System.out.println("No se ha encontrado al dueño seleccionado, intente nuevamente: ");
+            System.out.println("Seleccione el dueño de la mascota a crear: ");
+            System.out.print(">>> ");
+            indice = sc.nextInt()-1;
+            sc.nextLine();
+        }
+        System.out.println("Se ha seleccionado al dueño de manera exitosa");
+        return listaDuenios.get(indice);
+
+    }
+
 
     //Metodo para crear una fecha
     public static LocalDate crearFecha(){
