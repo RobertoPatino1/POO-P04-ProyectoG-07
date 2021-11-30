@@ -39,7 +39,6 @@ public class SistemaDuenioMascota {
         //Se crea el objeto
         System.out.println("Se ha creado el dueño exitosamente");
         DuenioMascota duenio = new DuenioMascota(nombreDuenio, direccionDuenio, telefonoDuenio, ciudadDuenio, emailDuenio, cedulaDuenio, apellidosDuenio);
-        //Sera que se lo agrega a la lista de Duenios de una?
         return duenio;
     }
 

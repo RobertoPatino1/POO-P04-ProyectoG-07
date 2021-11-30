@@ -14,10 +14,6 @@ public class SistemaPrograma {
         int seleccion1;
         int seleccion2;
         int seleccion3;
-        
-
-      
-
 
         do{
             seleccion = SistemaMenu.menuPrincipal();
@@ -197,9 +193,6 @@ public class SistemaPrograma {
         Auspiciante auspiciante3= new Auspiciante("Coca cola", "Av Juan tanca Marengo", "42598910", ciudad3, "gener@cocacola.com", "https://www.coca-cola.com.co/");
         SistemaLista.registrarAuspiciante(auspiciante3);
 
-
-
-
         //Concurso vigente        
         Auspiciante auspiciantev = new Auspiciante("Raul.Salazar","Base.naval.sur.Av25","0991279217",ciudad1,"rausala@espol.edu.ec","http.a");
         Premio premio1 = new Premio("Comida para perro 1 año", "Comida para perro 1/2 año", "Comida para perro 1/4 año",true, auspiciantev);
@@ -230,7 +223,7 @@ public class SistemaPrograma {
         concursoPasado.finalizarConcurso();
 
         //Se indica que las mascotas 1,2,3,4 y 5 ya han participado
-        //Es decir estas mascotas al ser eliminadas, quedaran en el registro pero ya no estaran disponibles para participar
+        //Estas mascotas al ser eliminadas, quedaran en el registro pero ya no estaran disponibles para participar
         mascota1.setParticipacion(true);
         mascota2.setParticipacion(true);
         mascota3.setParticipacion(true);

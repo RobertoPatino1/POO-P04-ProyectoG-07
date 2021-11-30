@@ -8,14 +8,15 @@ public class Premio {
     private boolean tieneAuspiciante;
     private Auspiciante auspiciante;
 
+    //Controctores 
+    //Caso 1: sin auspiciante 
     public Premio(String sP, String dS, String dT,boolean tA){
         this.descripcionPrimerLugar = sP;
         this.descripcionSegundoLugar = dS;
         this.descripcionTercerLugar = dT;
         this.tieneAuspiciante = tA;
     }  
-
-    //Constructor que inicializa todos los atributos
+    //Caso2: Con auspiciante (Constructor que inicializa todos los atributos)
     public Premio(String sP, String dS, String dT,boolean tA, Auspiciante auspiciante){
         this.descripcionPrimerLugar = sP;
         this.descripcionSegundoLugar = dS;

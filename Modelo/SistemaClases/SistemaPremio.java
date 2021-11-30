@@ -19,7 +19,7 @@ public class SistemaPremio {
         System.out.print(">>> ");
         String descripcion3 = sc.nextLine();
         System.out.println("Sus premios tienen algun auspiciante? ");
-        System.out.println("(Si/no) ");
+        System.out.println("(Si/No) ");
         System.out.print(">>> ");
         String respuesta = sc.nextLine().toLowerCase();
 
@@ -29,7 +29,7 @@ public class SistemaPremio {
         while(!respuesta.equals("si")&&!respuesta.equals("no")){
             System.out.println("No se detecto una respuesta, por favor intente nuevamente: ");
             System.out.println("Sus premios tienen algun auspiciante? ");
-            System.out.println("(Si/no) ");
+            System.out.println("(Si/No) ");
             System.out.print(">>> ");
             respuesta = sc.nextLine().toLowerCase();
 
@@ -53,11 +53,7 @@ public class SistemaPremio {
                 sc.nextLine();
             }
             ausp = SistemaLista.listaAuspiciantes.get(eleccion-1); //Se selecciona el auspiciante del indice escogido
-
-            
-
         }
-
 
         //Se crea el objeto
         Premio premio = new Premio(descripcion1, descripcion2, descripcion3, tieneAuspiciante, ausp); //El constructor recibe el auspiciante creado

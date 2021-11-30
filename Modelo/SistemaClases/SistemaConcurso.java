@@ -117,17 +117,10 @@ public class SistemaConcurso {
                 System.out.println("La mascota fue encontrada y registrada exitosamente");
 
             }
-            
 
         }else{
             System.out.println("La mascota no fue encontrada, ejecute el programa nuevamente");
         }
-
-        
-            
-        
-    }
-    
-           
-    
+   
+    }           
 }

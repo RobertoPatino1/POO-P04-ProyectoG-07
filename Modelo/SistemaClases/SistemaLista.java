@@ -51,10 +51,7 @@ public class SistemaLista {
         listaAuspiciantes.add(a);
     }
 
-
-
-
-
+    
     //------Metodos de Visualizacion ------\\
     public static void visualizarListaConcursos(){
         for(int i = 0; i < listaConcursos.size(); i++){

@@ -27,7 +27,6 @@ public class Mascota {
     }
     
     //Constructor con solo el id de la mascota
-
     public Mascota(String id){
         this.id = id;
     }
@@ -57,7 +56,7 @@ public class Mascota {
     }
 
     //Metodo equals:
-    //-----Este metodo sera usado para buscar una mascota en la lista de mascotas con el .contains()-----
+    //metodo usado para buscar una mascota en la lista de mascotas con el .contains()
     public boolean equals(Object o){
         if(this == o){
             return true;

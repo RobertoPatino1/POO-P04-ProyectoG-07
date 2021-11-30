@@ -104,7 +104,6 @@ public class SistemaMascota {
             }
 
         }else{
-            //No vamos a usar un bucle while para evitar problemas de input para datos
             System.out.println("No se ha encontrado la mascota solicitada, por favor vuelva a ejecutar");
         }
 
@@ -112,7 +111,6 @@ public class SistemaMascota {
 
 
     //Metodo para crear un id aleatorio para las mascotas
-
     public static String crearIdMascota(int i) 
     { 
         String theAlphaNumericS;
