@@ -8,6 +8,8 @@ import sistemaClases.*;
 public class SistemaConcurso {
     static Scanner sc = new Scanner(System.in);
     //Para concurso
+
+    //Metodo de creacion
     public static Concurso crearConcurso(){
         System.out.println("Ingrese el nombre del concurso a crear: ");
         System.out.print(">>> ");
