@@ -15,7 +15,6 @@ public class Persona{
         this.email = email;
     }
 
-
     //Getters
     public String getNombre(){
         return nombre;

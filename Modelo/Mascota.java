@@ -27,7 +27,6 @@ public class Mascota {
     }
     
     //Constructor con solo el id de la mascota
-
     public Mascota(String id){
         this.id = id;
     }
@@ -57,7 +56,7 @@ public class Mascota {
     }
 
     //Metodo equals:
-    //-----Este metodo sera usado para buscar una mascota en la lista de mascotas con el .contains()-----
+    //metodo usado para buscar una mascota en la lista de mascotas con el .contains()
     public boolean equals(Object o){
         if(this == o){
             return true;
@@ -74,11 +73,9 @@ public class Mascota {
     //Sera usado al momento de mostrar las listas de mascotas por pantalla
     public String toString(){
         if(disponibleParaFuturasInscripciones){
-            return "Nombre: "+nombre+"|"+"Tipo de mascota: "+tipoMascota+"|||"+"Dueño--> "+duenio+"|"+"ID: "+id+"|"+"-Disponible para inscripciones-";
-
+            return "Nombre: "+nombre+"|"+"Tipo de mascota: "+tipoMascota+"|"+"ID: "+id+"|"+"-Disponible para inscripciones-"+"|||"+"Dueño--> "+duenio;
         }else{
-            return "Nombre: "+nombre+"|"+"Tipo de mascota: "+tipoMascota+"|||"+"Dueño--> "+duenio+"|"+"ID: "+id+"|"+"-No disponible para inscripciones-";
-
+            return "Nombre: "+nombre+"|"+"Tipo de mascota: "+tipoMascota+"|"+"ID: "+id+"|"+"-No disponible para inscripciones-"+"|||"+"Dueño--> "+duenio;
         }
         
     }

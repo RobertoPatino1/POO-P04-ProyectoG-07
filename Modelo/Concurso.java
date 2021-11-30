@@ -37,7 +37,7 @@ public class Concurso {
         this.premio= premio;
         this.auspiciante= auspiciante;
         this.dirigidoA= dirigidoA;
-        this.estaAbierto = true; //El concurso esta abierto para inscripciones
+        this.estaAbierto = true;         //El concurso esta abierto para inscripciones
         this.concursoFinalizado = false; //El concurso aun no ha terminado
     }
 

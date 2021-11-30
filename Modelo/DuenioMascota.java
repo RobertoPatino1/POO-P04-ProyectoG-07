@@ -37,7 +37,6 @@ public class DuenioMascota extends Persona{
     //Este metodo sera usado por el contains para buscar en la lista el elemento que coincida con la cedula ingresada
     @Override
     public boolean equals(Object o){
-
         if(this == o){
             return true;
         }
@@ -47,7 +46,6 @@ public class DuenioMascota extends Persona{
             return this.cedula.equals(duenio.cedula);
         }
         return false;
-        
     }
 
     //Metodo toString
