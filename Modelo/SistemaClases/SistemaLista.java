@@ -139,7 +139,7 @@ public class SistemaLista {
         System.out.print(">>> ");
         int indice = sc.nextInt()-1;
         sc.nextLine();
-        while(indice<0||indice>=listaAuspiciantes.size()){
+        while(indice<0||indice>=listaDuenios.size()){
             System.out.println("No se ha encontrado al dueño seleccionado, intente nuevamente: ");
             System.out.println("Seleccione el dueño de la mascota a crear: ");
             System.out.print(">>> ");
