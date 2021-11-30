@@ -1,10 +1,10 @@
-package SistemaClases;
+package sistemaClases;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.time.LocalDate;
 
-import SistemaClases.*;
 import modelo.*;
+import sistemaClases.*;
 public class SistemaPrograma {
     public static void iniciarPrograma(){
         crearObjetos(); //Se crean todos los objetos con el metodo

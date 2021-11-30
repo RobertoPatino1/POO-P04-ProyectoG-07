@@ -1,10 +1,10 @@
-package SistemaClases;
+package sistemaClases;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import SistemaClases.*;
 import modelo.*;
+import sistemaClases.*;
 
 public class SistemaDuenioMascota {
 
