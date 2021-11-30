@@ -49,13 +49,14 @@ public class SistemaConcurso {
         }else if(seleccion==3){
             tipoAnimalesConcurso = TipoAnimalesConcurso.TODOS;
         }else{
-            while(seleccion!=1&&seleccion!=2&&seleccion!=3)
+            while(seleccion!=1&&seleccion!=2&&seleccion!=3){
             System.out.println("Respuesta no valida, seleccione nuevamente: ");
             System.out.println("Para quien esta dirigido el concurso: ");
             System.out.println("1. Perros \n"+"2. Gatos \n"+"3. Todos");
             System.out.print(">>> ");
             seleccion = sc.nextInt();
             sc.nextLine();
+            }
         }
 
         //Se crea el concurso: 
@@ -85,9 +86,9 @@ public class SistemaConcurso {
         
         int indice = sc.nextInt()-1;
         sc.nextLine();
-        while(indice<0&&indice>=SistemaLista.listaConcursosAbiertos.size()){
+        while(indice<0||indice>=SistemaLista.listaConcursosAbiertos.size()){
             System.out.println("Concurso no encontrado, por favor ingrese un valor valido");
-            System.out.println("Ingrese el numero del concurso en el que se va a registrar al participante"+" (0-"+SistemaLista.listaConcursosAbiertos.size()+"): ");
+            System.out.println("Ingrese el numero del concurso en el que se va a registrar al participante: ");
 
 
             System.out.print(">>> ");
